@@ -13,6 +13,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="我们四个人在这里添加我们的功能~"
+        android:text="我们一起在这里添加新的功能~"
         android:textSize="20sp" />
 </RelativeLayout>
