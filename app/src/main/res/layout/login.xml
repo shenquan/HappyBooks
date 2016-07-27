@@ -17,7 +17,7 @@
             android:id="@+id/username_layout"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="55dp"
+            android:layout_marginTop="20dp"
             android:background="#FFFFFF"
             android:gravity="center"
             android:paddingBottom="10dp"

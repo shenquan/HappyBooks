@@ -104,7 +104,7 @@
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:layout_marginTop="20dp"
-        android:background="@drawable/corners"
+        android:background="@drawable/log_out"
         android:fontFamily="微软雅黑"
         android:gravity="center"
         android:text="退出登录"

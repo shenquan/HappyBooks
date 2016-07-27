@@ -1,6 +1,17 @@
 <resources>
     <string name="app_name">互悦书吧</string>
+
     <string name="user_btn">我的</string>
     <string name="add_btn">增加</string>
     <string name="remove_btn">移除</string>
+
+    <string name="publish_name">确定发布</string>
+
+    <drawable name="clr_normal">#ff6501</drawable>
+    <drawable name="clr_pressed">#a44100</drawable>
+    <string-array name="publishTypeArr">
+        <item>出售</item>
+        <item>交换</item>
+        <item>赠送</item>
+    </string-array>
 </resources>

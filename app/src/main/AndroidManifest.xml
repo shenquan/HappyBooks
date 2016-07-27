@@ -23,6 +23,7 @@
 
         <activity android:name=".activity.BookMainActivity" />
         <activity android:name=".activity.LoginActivity" />
+        <activity android:name=".activity.PublishActivity" />
 
     </application>
 

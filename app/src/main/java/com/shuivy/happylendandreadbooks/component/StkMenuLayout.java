@@ -28,7 +28,5 @@ public class StkMenuLayout extends LinearLayout {
         } finally {
             a.recycle();
         }
-
-
     }
 }

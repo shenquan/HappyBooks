@@ -4,6 +4,7 @@ import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.KeyEvent;
@@ -41,6 +42,7 @@ public class BookMainActivity extends AppCompatActivity implements View.OnClickL
     private ImageView find_image;
     private ImageView message_image;
     private ImageView user_image;
+    private ImageView publish_image;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,11 +67,13 @@ public class BookMainActivity extends AppCompatActivity implements View.OnClickL
         find_item = (RelativeLayout) findViewById(R.id.find_item);
         message_item = (RelativeLayout) findViewById(R.id.message_item);
         user_item = (RelativeLayout) findViewById(R.id.user_item);
+        publish_image = (ImageView) findViewById(R.id.publish_image);
 
         home_item.setOnClickListener(this);
         find_item.setOnClickListener(this);
         message_item.setOnClickListener(this);
         user_item.setOnClickListener(this);
+        publish_image.setOnClickListener(this);
         //默认去进入时显示第一个页面
         selectItem(0);
     }
@@ -88,6 +92,9 @@ public class BookMainActivity extends AppCompatActivity implements View.OnClickL
                 break;
             case R.id.user_item:
                 selectItem(3);
+                break;
+            case R.id.publish_image:
+                selectItem(4);
                 break;
         }
     }
@@ -116,6 +123,10 @@ public class BookMainActivity extends AppCompatActivity implements View.OnClickL
                     user_image.setImageResource(R.mipmap.comui_tab_person_selected);
                     userFragment = new UserFragment();
                     transaction.replace(R.id.main_container, userFragment);
+                    break;
+                case 4:
+                    Intent intent = new Intent(BookMainActivity.this, PublishActivity.class);
+                    startActivity(intent);
                     break;
             }
             transaction.commit();
