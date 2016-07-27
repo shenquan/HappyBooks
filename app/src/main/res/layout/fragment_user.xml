@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFF"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:background="#FFFFFF">
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginLeft="20dp"
+            android:layout_marginStart="20dp"
+            android:src="@mipmap/user_default" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="23dp"
+            android:layout_marginStart="23dp"
+            android:layout_toEndOf="@+id/imageView2"
+            android:layout_toRightOf="@+id/imageView2"
+            android:text="书虫妞妞~" />
+
+    </RelativeLayout>
+
+    <LinearLayout style="@style/common_horizontal_division_line_style" />
+
+    <com.shuivy.happylendandreadbooks.component.StkMenuLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        custom:Text="我的积分" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/personInfoInterval" />
+
+    <com.shuivy.happylendandreadbooks.component.StkMenuLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        custom:Text="我发布的" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/personInfoInterval" />
+
+    <com.shuivy.happylendandreadbooks.component.StkMenuLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        custom:Text="我借出的" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/personInfoInterval" />
+
+    <com.shuivy.happylendandreadbooks.component.StkMenuLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        custom:Text="我借到的" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/personInfoInterval" />
+
+    <com.shuivy.happylendandreadbooks.component.StkMenuLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        custom:Text="我赞过的" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/personInfoInterval" />
+
+    <com.shuivy.happylendandreadbooks.component.StkMenuLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        custom:Text="设置" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/personInfoInterval" />
+
+    <Button
+        android:id="@+id/to_login_button"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/corners"
+        android:fontFamily="微软雅黑"
+        android:gravity="center"
+        android:text="退出登录"
+        android:textColor="#FFF"
+        android:textSize="18dp" />
+
+</LinearLayout>

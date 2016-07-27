@@ -22,6 +22,8 @@
         </activity>
 
         <activity android:name=".activity.BookMainActivity" />
+        <activity android:name=".activity.LoginActivity" />
+
     </application>
 
 </manifest>
