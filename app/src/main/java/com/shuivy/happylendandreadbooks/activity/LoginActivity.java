@@ -16,11 +16,11 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login);
-        Button niming = (Button)findViewById(R.id.niming);
+        Button niming = (Button) findViewById(R.id.niming);
         niming.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(LoginActivity.this,BookMainActivity.class);
+                Intent intent = new Intent(LoginActivity.this, BookMainActivity.class);
                 startActivity(intent);
             }
         });

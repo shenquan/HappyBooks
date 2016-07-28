@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="chat_SwipeLayout">
+        <attr name="chat_drag_edge" format="enum">
+            <enum name="chat_left" value="0" />
+            <enum name="chat_right" value="1" />
+            <enum name="chat_top" value="2" />
+            <enum name="chat_bottom" value="3" />
+        </attr>
+        <attr name="chat_show_mode" format="enum">
+            <enum name="chat_lay_down" value="0" />
+            <enum name="chat_pull_out" value="1" />
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="chat_roundedimageview">
+        <attr name="chat_border_thickness" format="dimension" />
+        <attr name="chat_border_inside_color" format="color" />
+        <attr name="chat_border_outside_color" format="color"></attr>
+    </declare-styleable>
+</resources>

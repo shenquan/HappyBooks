@@ -9,7 +9,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.shuivy.happylendandreadbooks.R;
-import com.shuivy.happylendandreadbooks.activity.BookMainActivity;
 import com.shuivy.happylendandreadbooks.activity.LoginActivity;
 import com.shuivy.happylendandreadbooks.viewmodel.ListMenu;
 

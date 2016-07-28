@@ -2,9 +2,10 @@
     android:layout_width="fill_parent"
     android:layout_gravity="fill_horizontal"
     android:orientation="horizontal"
-    android:layout_height="fill_parent" >
+    android:layout_height="fill_parent">
 
-    <ImageButton  android:id="@+id/header_left_btn"
+    <ImageButton
+        android:id="@+id/header_left_btn"
         android:layout_width="25dp"
         android:layout_height="25dp"
         android:scaleType="fitXY"
@@ -16,7 +17,8 @@
 
         />
 
-    <TextView android:id="@+id/header_text"
+    <TextView
+        android:id="@+id/header_text"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:layout_toRightOf="@+id/header_left_btn"
@@ -30,7 +32,8 @@
         android:layout_centerVertical="true"
         android:singleLine="true" />
 
-    <ImageButton  android:id="@+id/header_right_btn"
+    <ImageButton
+        android:id="@+id/header_right_btn"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:scaleType="fitXY"
@@ -38,7 +41,6 @@
         android:layout_marginRight="10dp"
         android:layout_centerVertical="true"
         android:src="@drawable/option_btn_selector"
-        android:background="@android:color/transparent"
-        />
+        android:background="@android:color/transparent" />
 
 </RelativeLayout>
