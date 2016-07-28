@@ -1,5 +1,6 @@
 package com.shuivy.happylendandreadbooks.fragment;
 
+import android.app.Activity;
 import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
@@ -21,24 +22,39 @@ import java.util.List;
 public class UserFragment extends Fragment implements View.OnClickListener {
 
     private Button logOutButton;
-    private View view;
     private List<ListMenu> listMenus = new ArrayList<ListMenu>();
+    private View mRootView;
+    private Activity mContext;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        view = inflater.inflate(R.layout.fragment_user, container, false);
-        logOutButton = (Button) view.findViewById(R.id.to_login_button);
+        mContext = getActivity();
+        if (mRootView == null) {
+            mRootView = inflater.inflate(R.layout.fragment_user, container, false);
+            initView();
+        } else {
+            ViewGroup parent = (ViewGroup) mRootView.getParent();
+            if (parent != null) {
+                parent.removeView(mRootView);
+            }
+        }
+
+        return mRootView;
+    }
+
+    private void initView() {
+        logOutButton = (Button) mRootView.findViewById(R.id.to_login_button);
         logOutButton.setOnClickListener(this);
-        return view;
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.to_login_button:
-                Intent intent = new Intent(view.getContext(), LoginActivity.class);
+                Intent intent = new Intent(mContext, LoginActivity.class);
                 startActivity(intent);
                 getActivity().finish();
         }
     }
+
 }

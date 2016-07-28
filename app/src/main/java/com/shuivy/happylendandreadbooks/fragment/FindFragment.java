@@ -1,5 +1,6 @@
 package com.shuivy.happylendandreadbooks.fragment;
 
+import android.app.Activity;
 import android.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -13,9 +14,26 @@ import com.shuivy.happylendandreadbooks.R;
  */
 public class FindFragment extends Fragment {
 
+    private View mRootView;
+    private Activity mContext;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_find, container, false);
-        return view;
+        mContext = getActivity();
+        if (mRootView == null) {
+            mRootView = inflater.inflate(R.layout.fragment_find, container, false);
+            initView();
+        } else {
+            ViewGroup parent = (ViewGroup) mRootView.getParent();
+            if (parent != null) {
+                parent.removeView(mRootView);
+            }
+        }
+
+        return mRootView;
+    }
+
+    private void initView() {
+
     }
 }

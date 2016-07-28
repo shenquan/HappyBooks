@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#fff"
+        android:paddingBottom="5dp"
+        android:paddingLeft="5dp"
+        android:paddingTop="5dp">
+        <!--用户头像-->
+        <com.shuivy.happylendandreadbooks.component.RoundImageView
+            android:id="@+id/list_item_head_image"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="5dp"
+            android:adjustViewBounds="true"
+            android:scaleType="fitXY"
+            android:src="@mipmap/share_person_1" />
+        <!--用户昵称-->
+        <TextView
+            android:id="@+id/list_item_nick_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="3dp"
+            android:layout_toRightOf="@+id/list_item_head_image"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="晴天不下雨"
+            android:textColor="#333"
+            android:textSize="16sp" />
+        <!--最新一条回复-->
+        <TextView
+            android:id="@+id/list_item_latest_chat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/list_item_nick_name"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="3dp"
+            android:layout_toRightOf="@+id/list_item_head_image"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="很高兴见到你"
+            android:textColor="#888"
+            android:textSize="13sp" />
+
+    </RelativeLayout>
+
+</FrameLayout>
+
