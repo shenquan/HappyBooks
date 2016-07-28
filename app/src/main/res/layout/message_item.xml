@@ -7,9 +7,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#fff"
-        android:paddingBottom="5dp"
+        android:paddingBottom="10dp"
         android:paddingLeft="5dp"
-        android:paddingTop="5dp">
+        android:paddingTop="10dp">
         <!--用户头像-->
         <com.shuivy.happylendandreadbooks.component.RoundImageView
             android:id="@+id/list_item_head_image"
@@ -39,7 +39,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/list_item_nick_name"
             android:layout_marginLeft="10dp"
-            android:layout_marginTop="3dp"
+            android:layout_marginTop="5dp"
             android:layout_toRightOf="@+id/list_item_head_image"
             android:ellipsize="end"
             android:maxLines="1"

@@ -42,12 +42,12 @@ public class MessageAdapter extends BaseAdapter {
             "暗夜小精灵",
     };
     private String[] signature = new String[]{
-            "上海大学见面哦",
+            "上海大学见面哦，见面聊~",
             "你的书挺好看的，以后多多交流",
             "很高兴见到你",
             "^_^",
             "你的书能便宜点吗",
-            "一个人不能被同一块石头绊倒两次。",
+            "呀。",
             "你好呀，朋友",
             "hi，你好呀，我们的书换着看怎么样",
             "书读百遍其义自见",
