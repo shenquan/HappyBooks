@@ -26,7 +26,7 @@ public class HomeFragment extends Fragment {
     private Activity mContext;
     private LayoutInflater mLayoutInflater;
     private int[] mImageIdArray;
-    private static final int TIME = 1700;
+    private static final int TIME = 2000;
     private List<View> mLayouts;
     private List<View> mDots;
     private ViewPager mViewPager;
