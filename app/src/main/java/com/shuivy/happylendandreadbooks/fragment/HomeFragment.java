@@ -10,7 +10,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 
 import com.shuivy.happylendandreadbooks.R;
 import com.shuivy.happylendandreadbooks.adapter.MyViewPagerAdapter;
@@ -58,19 +57,13 @@ public class HomeFragment extends Fragment {
                 R.mipmap.book_viewpager2,
                 R.mipmap.book_viewpager3,
         };
-        TextView textView = (TextView) mRootView.findViewById(R.id.titleView);
-        textView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                mViewPager.setCurrentItem(1);
-            }
-        });
 
         initIndex();
     }
 
     private void initIndex() {
         viewPager();
+
         mHandler.postDelayed(runnableForViewPager, TIME);
     }
 

@@ -2,6 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
     <LinearLayout
         android:id="@+id/publish_title"
         android:layout_width="match_parent"
@@ -9,12 +10,13 @@
         android:background="@color/colorPrimary"
         android:orientation="horizontal"
         android:gravity="center">
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="21sp"
             android:text="发布图书信息"
-            android:textColor="#FFF"/>
+            android:textColor="#FFF" />
     </LinearLayout>
     <!--main operation area-->
     <ScrollView

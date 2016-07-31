@@ -12,7 +12,7 @@ import com.shuivy.happylendandreadbooks.R;
 /**
  * Created by stk on 2016/7/22 0022.
  */
-public class FindFragment extends Fragment {
+public class MarketFragment extends Fragment {
 
     private View mRootView;
     private Activity mContext;
@@ -21,7 +21,7 @@ public class FindFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         mContext = getActivity();
         if (mRootView == null) {
-            mRootView = inflater.inflate(R.layout.fragment_find, container, false);
+            mRootView = inflater.inflate(R.layout.fragment_market, container, false);
             initView();
         } else {
             ViewGroup parent = (ViewGroup) mRootView.getParent();

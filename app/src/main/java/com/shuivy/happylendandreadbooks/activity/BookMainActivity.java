@@ -14,7 +14,7 @@ import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.shuivy.happylendandreadbooks.R;
-import com.shuivy.happylendandreadbooks.fragment.FindFragment;
+import com.shuivy.happylendandreadbooks.fragment.MarketFragment;
 import com.shuivy.happylendandreadbooks.fragment.HomeFragment;
 import com.shuivy.happylendandreadbooks.fragment.MessageFragment;
 import com.shuivy.happylendandreadbooks.fragment.UserFragment;
@@ -111,7 +111,7 @@ public class BookMainActivity extends AppCompatActivity implements View.OnClickL
                     break;
                 case 1:
                     find_image.setImageResource(R.mipmap.comui_tab_find_selected);
-                    findFragment = new FindFragment();
+                    findFragment = new MarketFragment();
                     transaction.replace(R.id.main_container, findFragment);
                     break;
                 case 2:
