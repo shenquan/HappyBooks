@@ -6,10 +6,15 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.ScaleAnimation;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.shuivy.happylendandreadbooks.R;
 import com.shuivy.happylendandreadbooks.adapter.MyViewPagerAdapter;
@@ -62,9 +67,9 @@ public class HomeFragment extends Fragment {
     }
 
     private void initIndex() {
-        viewPager();
-
-        mHandler.postDelayed(runnableForViewPager, TIME);
+        viewPager();//首页viewpager
+        mHandler.postDelayed(runnableForViewPager, TIME);//viewpager轮播
+        threeBody();//三体点击
     }
 
     /**
@@ -140,4 +145,80 @@ public class HomeFragment extends Fragment {
             }
         }
     };
+
+    /**
+     * 智能推荐三体点击事件
+     */
+    private void threeBody() {
+        RelativeLayout r_1 = (RelativeLayout) mRootView.findViewById(R.id.r_1);
+        RelativeLayout r_2 = (RelativeLayout) mRootView.findViewById(R.id.r_2);
+        RelativeLayout r_3 = (RelativeLayout) mRootView.findViewById(R.id.r_3);
+        final TextView t_1 = (TextView) mRootView.findViewById(R.id.t_1);
+        final TextView t_2 = (TextView) mRootView.findViewById(R.id.t_2);
+        final TextView t_3 = (TextView) mRootView.findViewById(R.id.t_3);
+
+        View.OnTouchListener threeBody = new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                switch (view.getId()) {
+                    case R.id.r_1: {
+                        threeBodyOnTouchEvent(motionEvent, t_1);
+                        break;
+                    }
+                    case R.id.r_2: {
+                        threeBodyOnTouchEvent(motionEvent, t_2);
+                        break;
+                    }
+                    case R.id.r_3: {
+                        threeBodyOnTouchEvent(motionEvent, t_3);
+                        break;
+                    }
+
+                }
+                return true;
+            }
+        };
+
+        r_1.setOnTouchListener(threeBody);
+        r_2.setOnTouchListener(threeBody);
+        r_3.setOnTouchListener(threeBody);
+
+    }
+
+    /**
+     * 三体触摸动画事件
+     */
+    private void threeBodyOnTouchEvent(MotionEvent motionEvent, View view) {
+        int duration = 150;
+        switch (motionEvent.getAction()) {
+            case MotionEvent.ACTION_DOWN: {
+                //按下时缩小
+                ScaleAnimation scaleAnimation = new ScaleAnimation(1.0f, 0.90f, 1.0f, 0.90f, Animation.RELATIVE_TO_SELF
+                        , 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
+                scaleAnimation.setDuration(duration);
+                scaleAnimation.setFillAfter(true);
+                view.startAnimation(scaleAnimation);
+                break;
+            }
+            case MotionEvent.ACTION_CANCEL: {
+                //移出当前view即取消点击时恢复原样
+                ScaleAnimation scaleAnimation = new ScaleAnimation(0.90f, 1.0f, 0.90f, 1.0f, Animation.RELATIVE_TO_SELF
+                        , 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
+                scaleAnimation.setDuration(duration);
+                scaleAnimation.setFillAfter(true);
+                view.startAnimation(scaleAnimation);
+                break;
+            }
+
+            case MotionEvent.ACTION_UP: {
+                //松开时放大
+                ScaleAnimation scaleAnimation = new ScaleAnimation(0.90f, 1.0f, 0.90f, 1.0f, Animation.RELATIVE_TO_SELF
+                        , 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
+                scaleAnimation.setDuration(duration);
+                scaleAnimation.setFillAfter(true);
+                view.startAnimation(scaleAnimation);
+                break;
+            }
+        }
+    }
 }
