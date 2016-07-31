@@ -3,12 +3,14 @@ package com.shuivy.happylendandreadbooks.fragment;
 import android.app.Activity;
 import android.app.Fragment;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.shuivy.happylendandreadbooks.R;
 import com.shuivy.happylendandreadbooks.adapter.MyViewPagerAdapter;
@@ -25,11 +27,13 @@ public class HomeFragment extends Fragment {
     private Activity mContext;
     private LayoutInflater mLayoutInflater;
     private int[] mImageIdArray;
-
+    private static final int TIME = 1700;
     private List<View> mLayouts;
     private List<View> mDots;
     private ViewPager mViewPager;
-    private int mCount;
+    private int mCount = 3;
+    private Handler mHandler = new Handler();
+    private int itemPosition;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -54,7 +58,20 @@ public class HomeFragment extends Fragment {
                 R.mipmap.book_viewpager2,
                 R.mipmap.book_viewpager3,
         };
+        TextView textView = (TextView) mRootView.findViewById(R.id.titleView);
+        textView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mViewPager.setCurrentItem(1);
+            }
+        });
+
+        initIndex();
+    }
+
+    private void initIndex() {
         viewPager();
+        mHandler.postDelayed(runnableForViewPager, TIME);
     }
 
     /**
@@ -67,7 +84,6 @@ public class HomeFragment extends Fragment {
 
         mLayouts = new ArrayList<>();
         mDots = new ArrayList<>();
-        mCount = 3;
         for (int i = 0; i < mCount; i++) {
             //下面两句必须放在for里面
             View layoutView = mLayoutInflater.inflate(R.layout.viewpager_item, null);
@@ -115,4 +131,20 @@ public class HomeFragment extends Fragment {
             }
         });
     }
+
+    /**
+     * ViewPager的定时器
+     */
+    Runnable runnableForViewPager = new Runnable() {
+        @Override
+        public void run() {
+            try {
+                itemPosition++;
+                mHandler.postDelayed(this, TIME);
+                mViewPager.setCurrentItem(itemPosition % mCount);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    };
 }
