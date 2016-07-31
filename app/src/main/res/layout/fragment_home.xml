@@ -120,7 +120,7 @@
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
                         android:maxLength="3"
-                        android:text="经济"
+                        android:text="历史"
                         android:textColor="#555"
                         android:textSize="40sp" />
 
@@ -145,7 +145,7 @@
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
                         android:maxLength="3"
-                        android:text="历史"
+                        android:text="经济"
                         android:textColor="#666"
                         android:textSize="30sp" />
 
@@ -159,6 +159,44 @@
             android:layout_width="match_parent"
             android:layout_height="1px"
             android:background="@color/personInfoInterval" />
+        <!--智能推荐-->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="44dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:text="最新发布"
+                android:textSize="18sp" />
+
+            <ImageView
+                android:id="@+id/right_arrow_2"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="10dp"
+                android:src="@mipmap/right_arrow" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:layout_toLeftOf="@+id/right_arrow_2"
+                android:text="更多"
+                android:textSize="15sp" />
+
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/personInfoInterval" />
+
 
     </LinearLayout>
 
