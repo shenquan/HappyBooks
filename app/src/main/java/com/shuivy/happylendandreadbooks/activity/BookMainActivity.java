@@ -14,8 +14,8 @@ import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.shuivy.happylendandreadbooks.R;
-import com.shuivy.happylendandreadbooks.fragment.MarketFragment;
 import com.shuivy.happylendandreadbooks.fragment.HomeFragment;
+import com.shuivy.happylendandreadbooks.fragment.MarketFragment;
 import com.shuivy.happylendandreadbooks.fragment.MessageFragment;
 import com.shuivy.happylendandreadbooks.fragment.UserFragment;
 

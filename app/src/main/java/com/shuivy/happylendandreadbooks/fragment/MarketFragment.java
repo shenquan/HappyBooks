@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RelativeLayout;
 
 import com.shuivy.happylendandreadbooks.R;
 
@@ -34,6 +35,26 @@ public class MarketFragment extends Fragment {
     }
 
     private void initView() {
+        RelativeLayout r_1 = (RelativeLayout) mRootView.findViewById(R.id.r_1);
+        RelativeLayout r_2 = (RelativeLayout) mRootView.findViewById(R.id.r_2);
+        final View view_1 = mRootView.findViewById(R.id.view_1);
+        final View view_2 = mRootView.findViewById(R.id.view_2);
+        view_1.setVisibility(View.VISIBLE);
+        view_2.setVisibility(View.GONE);
 
+        r_1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                view_1.setVisibility(View.VISIBLE);
+                view_2.setVisibility(View.GONE);
+            }
+        });
+        r_2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                view_1.setVisibility(View.GONE);
+                view_2.setVisibility(View.VISIBLE);
+            }
+        });
     }
 }
