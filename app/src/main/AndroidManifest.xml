@@ -13,7 +13,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".activity.StartActivity">
+        <activity
+            android:name=".activity.StartActivity"
+            android:configChanges="locale|fontScale|orientation|keyboardHidden|screenSize"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -21,9 +24,18 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".activity.BookMainActivity" />
-        <activity android:name=".activity.LoginActivity" />
-        <activity android:name=".activity.PublishActivity" />
+        <activity
+            android:name=".activity.BookMainActivity"
+            android:configChanges="locale|fontScale|orientation|keyboardHidden|screenSize"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.LoginActivity"
+            android:configChanges="locale|fontScale|orientation|keyboardHidden|screenSize"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.PublishActivity"
+            android:configChanges="locale|fontScale|orientation|keyboardHidden|screenSize"
+            android:screenOrientation="portrait" />
 
     </application>
 
