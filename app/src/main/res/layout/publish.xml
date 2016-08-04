@@ -1,22 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#FFF">
 
     <LinearLayout
         android:id="@+id/publish_title"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:background="@color/colorPrimary"
-        android:orientation="horizontal"
-        android:gravity="center">
+        android:gravity="center"
+        android:orientation="horizontal">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="21sp"
             android:text="发布图书信息"
-            android:textColor="#FFF" />
+            android:textColor="#FFF"
+            android:textSize="21sp" />
     </LinearLayout>
     <!--main operation area-->
     <ScrollView
@@ -33,7 +34,7 @@
             <!--title&content-->
             <LinearLayout
                 android:layout_width="fill_parent"
-                android:layout_height="270dp"
+                android:layout_height="wrap_content"
                 android:background="@drawable/content_area"
                 android:orientation="vertical"
                 android:paddingLeft="20dp">
@@ -58,7 +59,7 @@
                 <EditText
                     android:id="@+id/et_content_text"
                     android:layout_width="match_parent"
-                    android:layout_height="100dp"
+                    android:layout_height="50dp"
                     android:layout_marginRight="10dp"
                     android:layout_marginTop="10dp"
                     android:background="@null"
@@ -68,24 +69,10 @@
                     android:textColorHint="@color/colorHint"
                     android:textCursorDrawable="@drawable/color_cursor"
                     android:textSize="14sp" />
-                <!-- show images-->
-                <LinearLayout
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <ImageButton
-                        android:layout_width="70dp"
-                        android:layout_height="70dp"
-                        android:layout_marginRight="10dp"
-                        android:background="@android:color/transparent"
-                        android:scaleType="fitXY"
-                        android:src="@drawable/add_image_btn_selector" />
-                </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="200dp"
-                    android:layout_height="40dp"
+                    android:layout_height="25dp"
                     android:layout_marginTop="15dp"
                     android:orientation="horizontal">
 
@@ -103,7 +90,42 @@
                         android:textSize="12sp" />
                 </LinearLayout>
             </LinearLayout>
+            <!-- show images-->
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                >
 
+                <ImageView
+                    android:id="@+id/imageViewId"
+                    android:layout_width="200dp"
+                    android:layout_height="200dp"
+                    android:scaleType="fitXY"
+                    android:visibility="gone"/>
+
+                <ImageButton
+                    android:id="@+id/add_image"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_toRightOf="@id/imageViewId"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:scaleType="fitXY"
+                    android:background="@drawable/add_image_btn_selector" />
+                <ImageButton
+                    android:id="@+id/delete_image"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_toRightOf="@id/imageViewId"
+                    android:layout_below="@+id/add_image"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="20dp"
+                    android:scaleType="fitXY"
+                    android:background="@drawable/delete_image"
+                    android:visibility="gone"/>
+            </RelativeLayout>
             <LinearLayout
                 android:layout_width="fill_parent"
                 android:layout_height="200dp"
