@@ -40,9 +40,6 @@ public class ChatActivity extends AppCompatActivity{
 
         setContentView(R.layout.activity_chat);
 
-
-
-
         Intent intent=getIntent();
         final String guestCode=intent.getStringExtra("guestCode");
         final String guestName=intent.getStringExtra("guestName");

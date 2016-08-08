@@ -27,7 +27,7 @@ public class MessageListBuilder {
     }
 
     public List<MyMessage> getMessagesFromSQLite(){
-        MyDataBaseHelper dataBaseHelper=new MyDataBaseHelper(mContext,"happy.db",null,4);
+        MyDataBaseHelper dataBaseHelper=new MyDataBaseHelper(mContext,"happy.db",null,6);
         SQLiteDatabase db=dataBaseHelper.getReadableDatabase();
         Cursor cursor=db.query("message",null,null,null,"guest_code",null,"date DESC");
         if(cursor.moveToFirst()){

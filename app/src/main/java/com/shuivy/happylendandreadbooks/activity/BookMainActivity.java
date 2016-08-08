@@ -76,6 +76,8 @@ public class BookMainActivity extends AppCompatActivity implements View.OnClickL
         publish_image.setOnClickListener(this);
         //默认去进入时显示第一个页面
         selectItem(0);
+
+
     }
 
     @Override

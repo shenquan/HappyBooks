@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,6 +27,11 @@ public class MessageFragment extends Fragment {
     private View mRootView;
     private Activity mContext;
     private List<MyMessage> messList;
+    MessageListBuilder messageListBuilder;
+    ListView messageListView;
+
+
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -43,13 +50,12 @@ public class MessageFragment extends Fragment {
     }
 
     private void initView() {
-        MessageListBuilder messageListBuilder=new MessageListBuilder(mContext);
+        messageListBuilder=new MessageListBuilder(mContext);
         messList= messageListBuilder.getMessages();
-        ListView messageListView = (ListView) mRootView.findViewById(R.id.message_list);
+        messageListView = (ListView) mRootView.findViewById(R.id.message_list);
 
-        MessageAdapter messageAdapter = new MessageAdapter(mContext);
+        final MessageAdapter messageAdapter = new MessageAdapter(mContext);
         messageListView.setAdapter(messageAdapter);
-
         messageListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {

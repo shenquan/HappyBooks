@@ -59,7 +59,7 @@ public class MyDataBaseHelper extends SQLiteOpenHelper {
         values.put("guest_name","zhoujc");
         values.put("guest_code","1");
         values.put("content","求送本小黄书");
-        values.put("date","2016-08-05 22:31:04");
+        values.put("date",1470645607);
         db.insert("message",null,values);
         values.clear();
 
@@ -67,7 +67,7 @@ public class MyDataBaseHelper extends SQLiteOpenHelper {
         values.put("guest_name","zhoujc");
         values.put("guest_code","1");
         values.put("content","给你5元");
-        values.put("date","2016-08-05 22:35:04");
+        values.put("date",1470645608);
         db.insert("message",null,values);
         values.clear();
 
@@ -75,7 +75,7 @@ public class MyDataBaseHelper extends SQLiteOpenHelper {
         values.put("guest_name","zhoujc");
         values.put("guest_code","1");
         values.put("content","20元好不好");
-        values.put("date","2016-08-05 22:37:04");
+        values.put("date",1470645609);
         db.insert("message",null,values);
         values.clear();
 
@@ -83,7 +83,7 @@ public class MyDataBaseHelper extends SQLiteOpenHelper {
         values.put("guest_name","zhoujc");
         values.put("guest_code","1");
         values.put("content","送你了");
-        values.put("date","2016-08-05 22:39:04");
+        values.put("date",1470645610);
         db.insert("message",null,values);
         values.clear();
 
@@ -91,7 +91,7 @@ public class MyDataBaseHelper extends SQLiteOpenHelper {
         values.put("guest_name","小智");
         values.put("guest_code","2");
         values.put("content","这本书和你换吧");
-        values.put("date","2016-08-06 22:31:04");
+        values.put("date",1470545607);
         db.insert("message",null,values);
         values.clear();
 
@@ -99,7 +99,7 @@ public class MyDataBaseHelper extends SQLiteOpenHelper {
         values.put("guest_name","我是小猫咪");
         values.put("guest_code","3");
         values.put("content","呀。");
-        values.put("date","2016-08-06 22:31:04");
+        values.put("date",1470445607);
         db.insert("message",null,values);
         values.clear();
 
