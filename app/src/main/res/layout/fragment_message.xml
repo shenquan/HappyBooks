@@ -10,5 +10,5 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:divider="#666"
-        android:dividerHeight="1px" />
+        android:dividerHeight="0.5px" />
 </LinearLayout>

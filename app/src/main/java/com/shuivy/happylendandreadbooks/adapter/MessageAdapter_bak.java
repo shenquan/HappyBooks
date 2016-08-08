@@ -2,33 +2,21 @@ package com.shuivy.happylendandreadbooks.adapter;
 
 
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.TextView;
 
 import com.shuivy.happylendandreadbooks.R;
-import com.shuivy.happylendandreadbooks.models.MyMessage;
-import com.shuivy.happylendandreadbooks.util.MessageListBuilder;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
 
 /**
  * Created by sqhan on 2016/7/28.
  */
-public class MessageAdapter extends BaseAdapter {
+public class MessageAdapter_bak extends BaseAdapter {
     private Context mContext;
-    private List<MyMessage> messList=new ArrayList<>();
-    private MessageListBuilder messageListBuilder;
     public static final int COUNT = 10;
-
     private int[] headImage = new int[]{
             R.mipmap.share_person_1,
             R.mipmap.share_person_2,
@@ -41,8 +29,6 @@ public class MessageAdapter extends BaseAdapter {
             R.mipmap.share_person_9,
             R.mipmap.share_person_10,
     };
-    private HashMap<String,Integer> guestProtraits=new HashMap<>();
-
     private String[] nickName = new String[]{
             "爱书宝贝",
             "小小书虫",
@@ -68,23 +54,18 @@ public class MessageAdapter extends BaseAdapter {
             "哈哈",
     };
 
-    public MessageAdapter(Context mContext) {
+    public MessageAdapter_bak(Context mContext) {
         this.mContext = mContext;
-        guestProtraits.put("1",R.mipmap.share_person_1);
-        guestProtraits.put("2",R.mipmap.share_person_2);
-        guestProtraits.put("3",R.mipmap.share_person_3);
-        messageListBuilder= new MessageListBuilder(mContext);
-        messList = messageListBuilder.getMessages();
     }
 
     @Override
     public int getCount() {
-        return messList.size();
+        return COUNT;
     }
 
     @Override
-    public MyMessage getItem(int i) {
-        return messList.get(i);
+    public Object getItem(int i) {
+        return i;
     }
 
     @Override
@@ -94,10 +75,7 @@ public class MessageAdapter extends BaseAdapter {
 
     @Override
     public View getView(int i, View convertView, ViewGroup viewGroup) {
-        Log.d("position",i+"");
-
         ViewHolder holder;
-        MyMessage message = getItem(i);
         if (convertView == null) {
             holder = new ViewHolder();
             convertView = LayoutInflater.from(mContext).inflate(R.layout.message_item, null);
@@ -110,9 +88,9 @@ public class MessageAdapter extends BaseAdapter {
         }
         //// TODO: 2016/7/28
         //此处将会从服务器请求到数据，动态更改listview
-        holder.imageView.setImageResource(this.guestProtraits.get(message.getGuestCode()));
-        holder.nickNameTextView.setText(message.getGuestName());
-        holder.latestChatTextView.setText(message.getContent());
+        holder.imageView.setImageResource(headImage[i]);
+        holder.nickNameTextView.setText(nickName[i]);
+        holder.latestChatTextView.setText(signature[i]);
         /*if (i == 1 || i == 3 || i == 8) {
             holder.nickNameTextView.setTextColor(0xffdd0000);
             holder.latestChatTextView.setTextColor(0xffdd0000);

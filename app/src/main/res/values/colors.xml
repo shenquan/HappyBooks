@@ -10,4 +10,8 @@
     <color name="colorWhite">#ffffff</color>
     <color name="colorSplitter">#EAEAEA</color>
     <color name="colorHint">#cccccc</color>
+
+    <color name="gray">@android:color/darker_gray</color>
+    <color name="transparent">@android:color/transparent</color>
+    <color name="blue">@android:color/holo_blue_light</color>
 </resources>

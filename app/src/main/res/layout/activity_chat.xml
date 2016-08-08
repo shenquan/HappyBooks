@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <include layout="@layout/titlebar_chat"/>
+    <ListView
+        android:id="@+id/chat_list_view"
+        android:layout_width="match_parent"
+        android:divider="@drawable/chat_divider"
+        android:layout_height="0px"
+        android:layout_weight="1">
+    </ListView>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/colorWhite">
+        <EditText
+            android:id="@+id/input_edit_text"
+            android:inputType="text"
+            android:hint="请输入文字信息"
+            android:paddingLeft="15dp"
+            android:layout_width="0dp"
+            android:layout_weight="8"
+            android:layout_height="match_parent"
+            android:background="@null"
+            />
+        <ImageView
+        android:contentDescription="biaoqing"
+        android:layout_width="30dp"
+        android:layout_height="match_parent"
+        android:src="@mipmap/ic_msg_panel_smiles"
+            android:layout_marginRight="10dp"/>
+        <ImageView
+            android:id="@+id/send_image_view"
+            android:contentDescription="send"
+            android:layout_width="30dp"
+            android:layout_height="match_parent"
+            android:src="@mipmap/ic_chat_send"/>
+    </LinearLayout>
+</LinearLayout>
