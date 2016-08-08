@@ -9,6 +9,8 @@ import android.provider.MediaStore;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.shuivy.happylendandreadbooks.R;
 
@@ -23,6 +25,7 @@ public class PublishActivity extends Activity {
     private ImageView imageView;
     public static final String IMAGE_UNSPECIFIED = "image/*";
     public static final int NONE = 0;
+    public static final int BOOKTYPEREQUEST = 1;
     public static final int PHOTOZOOM = 2; // 图片缩放
     public static final int PHOTORESOULT = 3;// 传回的结果
 
@@ -37,6 +40,14 @@ public class PublishActivity extends Activity {
         imageAddButton = (ImageButton) findViewById(R.id.add_image);
         imageDeleteButton = (ImageButton) findViewById(R.id.delete_image);
         imageView = (ImageView) findViewById(R.id.imageViewId);
+        RelativeLayout typeSelector = (RelativeLayout)findViewById(R.id.typeSelector);
+        typeSelector.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(PublishActivity.this,BooktypeListActivity.class);
+                startActivityForResult(intent, BOOKTYPEREQUEST);
+            }
+        });
         //添加图片按钮点击事件
         imageAddButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -85,6 +96,10 @@ public class PublishActivity extends Activity {
                 imageDeleteButton.setVisibility(View.VISIBLE);
             }
 
+        }
+        if(requestCode == PublishActivity.BOOKTYPEREQUEST && resultCode == RESULT_OK){
+            TextView typeName = (TextView)findViewById(R.id.typeName);
+            typeName.setText(data.getStringExtra("typeName"));
         }
         super.onActivityResult(requestCode, resultCode, data);
     }
