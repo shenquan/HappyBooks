@@ -4,7 +4,6 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.widget.Toast;
 
 /**
  * Created by stk on 2016/8/6 0006.
@@ -39,7 +38,61 @@ public class MyDataBaseHelper extends SQLiteOpenHelper {
         db.execSQL(CREATE_USER);
         db.execSQL(CREATE_GUEST);
         db.execSQL(CREATE_MESSAGE);
-        Toast.makeText(mContext, "数据库创建成功!", Toast.LENGTH_SHORT).show();
+
+        ContentValues values = new ContentValues();
+        values.put("name", "stk_night");
+        db.insert("user", null, values);
+        values.clear();
+
+        values.put("type", 1);
+        values.put("guest_name", "zhoujc");
+        values.put("guest_code", "1");
+        values.put("content", "求送本小黄书");
+        values.put("date", 1470645607);
+        db.insert("message", null, values);
+        values.clear();
+
+        values.put("type", 1);
+        values.put("guest_name", "zhoujc");
+        values.put("guest_code", "1");
+        values.put("content", "给你5元");
+        values.put("date", 1470645608);
+        db.insert("message", null, values);
+        values.clear();
+
+        values.put("type", 1);
+        values.put("guest_name", "zhoujc");
+        values.put("guest_code", "1");
+        values.put("content", "20元好不好");
+        values.put("date", 1470645609);
+        db.insert("message", null, values);
+        values.clear();
+
+        values.put("type", 0);
+        values.put("guest_name", "zhoujc");
+        values.put("guest_code", "1");
+        values.put("content", "送你了");
+        values.put("date", 1470645610);
+        db.insert("message", null, values);
+        values.clear();
+
+        values.put("type", 1);
+        values.put("guest_name", "小智");
+        values.put("guest_code", "2");
+        values.put("content", "这本书和你换吧");
+        values.put("date", 1470545607);
+        db.insert("message", null, values);
+        values.clear();
+
+        values.put("type", 1);
+        values.put("guest_name", "我是小猫咪");
+        values.put("guest_code", "3");
+        values.put("content", "呀。");
+        values.put("date", 1470445607);
+        db.insert("message", null, values);
+        values.clear();
+
+//        Toast.makeText(mContext, "数据库创建成功!", Toast.LENGTH_SHORT).show();
     }
 
     @Override

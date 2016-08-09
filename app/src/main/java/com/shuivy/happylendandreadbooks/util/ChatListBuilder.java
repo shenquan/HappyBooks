@@ -43,10 +43,7 @@ public class ChatListBuilder {
             } while (cursor.moveToNext());
             cursor.close();
         }
-        db.close();
         return this.messList;
-
-
     }
 
 }

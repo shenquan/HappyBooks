@@ -97,7 +97,7 @@
                     android:src="@mipmap/comui_tab_message" />
 
                 <TextView
-                    android:text="留言"
+                    android:text="信息"
                     android:layout_gravity="center_horizontal"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent" />

@@ -15,34 +15,34 @@ import java.util.List;
  */
 public class MessageListBuilder {
     private Context mContext;
-    public MessageListBuilder(Context context){
-        this.mContext=context;
+
+    public MessageListBuilder(Context context) {
+        this.mContext = context;
     }
 
-    List<MyMessage> messList=new ArrayList<>();
+    List<MyMessage> messList = new ArrayList<>();
 
-    public List<MyMessage> getMessages(){
-        this.messList=getMessagesFromSQLite();
+    public List<MyMessage> getMessages() {
+        this.messList = getMessagesFromSQLite();
         return this.messList;
     }
 
-    public List<MyMessage> getMessagesFromSQLite(){
-        MyDataBaseHelper dataBaseHelper=new MyDataBaseHelper(mContext,"happy.db",null,6);
-        SQLiteDatabase db=dataBaseHelper.getReadableDatabase();
-        Cursor cursor=db.query("message",null,null,null,"guest_code",null,"date DESC");
-        if(cursor.moveToFirst()){
-            do{
-                MyMessage message=new MyMessage();
+    public List<MyMessage> getMessagesFromSQLite() {
+        MyDataBaseHelper dataBaseHelper = new MyDataBaseHelper(mContext, "happy.db", null, 6);
+        SQLiteDatabase db = dataBaseHelper.getReadableDatabase();
+        Cursor cursor = db.query("message", null, null, null, "guest_code", null, "date DESC");
+        if (cursor.moveToFirst()) {
+            do {
+                MyMessage message = new MyMessage();
                 message.setGuestCode(cursor.getString(cursor.getColumnIndex("guest_code")));
                 message.setGuestName(cursor.getString(cursor.getColumnIndex("guest_name")));
                 message.setType(cursor.getInt(cursor.getColumnIndex("type")));
                 message.setContent(cursor.getString(cursor.getColumnIndex("content")));
                 message.setDate(cursor.getLong(cursor.getColumnIndex("date")));
                 this.messList.add(message);
-            }while(cursor.moveToNext());
+            } while (cursor.moveToNext());
             cursor.close();
         }
-        db.close();
         return this.messList;
     }
 

@@ -64,15 +64,14 @@ public class MyMessage {
         this.date = date;
     }
 
-    public Boolean save(Context context){
-        MyDataBaseHelper myDataBaseHelper=new MyDataBaseHelper(context,"happy.db",null,6);
-        SQLiteDatabase db=myDataBaseHelper.getWritableDatabase();
+    public Boolean save(Context context) {
+        MyDataBaseHelper myDataBaseHelper = new MyDataBaseHelper(context, "happy.db", null, 6);
+        SQLiteDatabase db = myDataBaseHelper.getWritableDatabase();
         db.execSQL("INSERT INTO message " +
                 "(guest_name,guest_code,type,content,date)" +
                 "VALUES(" +
-                "'"+this.getGuestName()+"','"+this.getGuestCode()+"','" +
-                this.getType()+"','"+this.getContent()+"','"+this.date+"')");
-        db.close();
+                "'" + this.getGuestName() + "','" + this.getGuestCode() + "','" +
+                this.getType() + "','" + this.getContent() + "','" + this.date + "')");
         return true;
     }
 }
