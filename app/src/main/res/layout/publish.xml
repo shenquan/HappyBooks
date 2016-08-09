@@ -169,7 +169,7 @@
 
                         <RadioButton
                             android:id="@+id/radio_rent"
-                            android:layout_width="80dp"
+                            android:layout_width="70dp"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:background="@drawable/radio"
@@ -181,10 +181,10 @@
 
                         <RadioButton
                             android:id="@+id/radio_switch"
-                            android:layout_width="80dp"
+                            android:layout_width="70dp"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
-                            android:layout_marginLeft="20dp"
+                            android:layout_marginLeft="10dp"
                             android:background="@drawable/radio"
                             android:button="@null"
                             android:gravity="center"
@@ -193,16 +193,15 @@
 
                         <RadioButton
                             android:id="@+id/radio_need"
-                            android:layout_width="80dp"
+                            android:layout_width="70dp"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
-                            android:layout_marginLeft="20dp"
+                            android:layout_marginLeft="10dp"
                             android:background="@drawable/radio"
                             android:button="@null"
                             android:gravity="center"
                             android:text="求购"
                             android:textColor="@android:color/black" />
-
 
                     </RadioGroup>
 
@@ -289,7 +288,8 @@
                         android:layout_marginLeft="80dp"
                         android:layout_toLeftOf="@+id/header_right_btn"
                         android:layout_toRightOf="@+id/header_left_btn"
-                        android:hint="上海大学"
+                        android:background="@null"
+                        android:hint="请输入交易地址"
                         android:singleLine="true"
                         android:textColor="@android:color/black"
                         android:textSize="15sp" />
