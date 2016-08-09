@@ -12,8 +12,7 @@
         android:layout_alignParentLeft="true"
         android:layout_marginLeft="10dp"
         android:src="@mipmap/left_disable_night"
-        android:background="@android:color/transparent"
-        />
+        android:background="@android:color/transparent" />
 
     <TextView
         android:id="@+id/chat_header_text"

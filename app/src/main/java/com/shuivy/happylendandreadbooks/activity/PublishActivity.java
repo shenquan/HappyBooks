@@ -40,11 +40,11 @@ public class PublishActivity extends Activity {
         imageAddButton = (ImageButton) findViewById(R.id.add_image);
         imageDeleteButton = (ImageButton) findViewById(R.id.delete_image);
         imageView = (ImageView) findViewById(R.id.imageViewId);
-        RelativeLayout typeSelector = (RelativeLayout)findViewById(R.id.typeSelector);
+        RelativeLayout typeSelector = (RelativeLayout) findViewById(R.id.typeSelector);
         typeSelector.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(PublishActivity.this,BooktypeListActivity.class);
+                Intent intent = new Intent(PublishActivity.this, BooktypeListActivity.class);
                 startActivityForResult(intent, BOOKTYPEREQUEST);
             }
         });
@@ -97,8 +97,8 @@ public class PublishActivity extends Activity {
             }
 
         }
-        if(requestCode == PublishActivity.BOOKTYPEREQUEST && resultCode == RESULT_OK){
-            TextView typeName = (TextView)findViewById(R.id.typeName);
+        if (requestCode == PublishActivity.BOOKTYPEREQUEST && resultCode == RESULT_OK) {
+            TextView typeName = (TextView) findViewById(R.id.typeName);
             typeName.setText(data.getStringExtra("typeName"));
         }
         super.onActivityResult(requestCode, resultCode, data);

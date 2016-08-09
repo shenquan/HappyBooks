@@ -5,7 +5,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.shuivy.happylendandreadbooks.R;
@@ -49,7 +48,7 @@ public class ChatListAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         View v = null;
-        MyMessage message =getItem(position);
+        MyMessage message = getItem(position);
         ViewHolder1 holder1;
         ViewHolder2 holder2;
 
@@ -82,7 +81,7 @@ public class ChatListAdapter extends BaseAdapter {
 
                 holder2.messageTextView = (TextView) v.findViewById(R.id.message_text);
                 holder2.timeTextView = (TextView) v.findViewById(R.id.time_text);
-                holder2.nameTextView = (TextView)v.findViewById(R.id.chat_guest_name);
+                holder2.nameTextView = (TextView) v.findViewById(R.id.chat_guest_name);
 
                 v.setTag(holder2);
 
