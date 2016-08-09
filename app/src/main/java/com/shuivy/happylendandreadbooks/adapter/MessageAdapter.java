@@ -109,19 +109,9 @@ public class MessageAdapter extends BaseAdapter {
         } else {
             holder = (ViewHolder) convertView.getTag();
         }
-        //// TODO: 2016/7/28
-        //此处将会从服务器请求到数据，动态更改listview
         holder.imageView.setImageResource(this.guestProtraits.get(message.getGuestCode()));
         holder.nickNameTextView.setText(message.getGuestName());
         holder.latestChatTextView.setText(message.getContent());
-        /*if (i == 1 || i == 3 || i == 8) {
-            holder.nickNameTextView.setTextColor(0xffdd0000);
-            holder.latestChatTextView.setTextColor(0xffdd0000);
-        } else {//此处必须加else，因为会重用
-            holder.nickNameTextView.setTextColor(0xff222222);
-            holder.latestChatTextView.setTextColor(0xff666666);
-        }*/
-
         return convertView;
     }
 

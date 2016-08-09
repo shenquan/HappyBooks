@@ -6,7 +6,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="40dp"
         android:orientation="horizontal">
 
         <RelativeLayout
@@ -24,7 +24,7 @@
                 android:ellipsize="end"
                 android:text="最新发布"
                 android:textColor="#444"
-                android:textSize="25sp" />
+                android:textSize="20sp" />
 
             <View
                 android:layout_width="1px"
@@ -35,7 +35,7 @@
             <View
                 android:id="@+id/view_1"
                 android:layout_width="match_parent"
-                android:layout_height="5dp"
+                android:layout_height="2dp"
                 android:layout_alignParentBottom="true"
                 android:background="@color/colorPrimary"
                 android:visibility="gone" />
@@ -55,12 +55,12 @@
                 android:layout_centerInParent="true"
                 android:text="求购信息"
                 android:textColor="#555"
-                android:textSize="25sp" />
+                android:textSize="20sp" />
 
             <View
                 android:id="@+id/view_2"
                 android:layout_width="match_parent"
-                android:layout_height="5dp"
+                android:layout_height="2dp"
                 android:layout_alignParentBottom="true"
                 android:background="@color/colorPrimary"
                 android:visibility="gone" />
