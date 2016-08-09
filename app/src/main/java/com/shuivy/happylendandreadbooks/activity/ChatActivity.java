@@ -9,6 +9,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.shuivy.happylendandreadbooks.R;
 import com.shuivy.happylendandreadbooks.adapter.ChatListAdapter;
@@ -51,6 +52,19 @@ public class ChatActivity extends AppCompatActivity {
 
         inputEditText = (EditText) findViewById(R.id.input_edit_text);
         sendImageView = (ImageView) findViewById(R.id.send_image_view);
+
+        EditText input_edit_text = (EditText) findViewById(R.id.input_edit_text);
+        input_edit_text.setFocusable(true);
+        input_edit_text.setFocusableInTouchMode(true);
+        input_edit_text.requestFocus();
+        ImageView biaoqing = (ImageView) findViewById(R.id.biaoqing);
+        biaoqing.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(ChatActivity.this, "表情功能后续添加哦~", Toast.LENGTH_LONG).show();
+            }
+        });
+
         sendImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

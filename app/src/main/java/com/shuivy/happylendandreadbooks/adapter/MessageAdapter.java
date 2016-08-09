@@ -71,6 +71,8 @@ public class MessageAdapter extends BaseAdapter {
         guestProtraits.put("1", R.mipmap.share_person_1);
         guestProtraits.put("2", R.mipmap.share_person_2);
         guestProtraits.put("3", R.mipmap.share_person_3);
+        guestProtraits.put("4", R.mipmap.share_person_4);
+        guestProtraits.put("5", R.mipmap.share_person_5);
         messageListBuilder = new MessageListBuilder(mContext);
         messList = messageListBuilder.getMessages();
     }

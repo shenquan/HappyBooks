@@ -24,7 +24,7 @@
             android:paddingTop="10dp">
 
             <EditText
-                android:id="@+id/username"
+                android:id="@+id/user_name"
                 android:layout_width="match_parent"
                 android:layout_height="25sp"
                 android:layout_gravity="left|bottom"
@@ -34,7 +34,7 @@
                 android:maxLength="20"
                 android:paddingLeft="80dp"
                 android:paddingRight="60dp"
-                android:textSize="15sp"></EditText>
+                android:textSize="15sp"/>
 
             <TextView
                 android:layout_width="wrap_content"

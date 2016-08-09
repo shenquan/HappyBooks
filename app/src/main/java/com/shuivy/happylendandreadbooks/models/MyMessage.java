@@ -10,6 +10,7 @@ import com.shuivy.happylendandreadbooks.database.MyDataBaseHelper;
  */
 public class MyMessage {
     private Integer id;
+    //1 代表别人发给我的 0代表我发给别人的
     private Integer type;
     private String guestName;
     private String guestCode;
@@ -65,7 +66,7 @@ public class MyMessage {
     }
 
     public Boolean save(Context context) {
-        MyDataBaseHelper myDataBaseHelper = new MyDataBaseHelper(context, "happy.db", null, 6);
+        MyDataBaseHelper myDataBaseHelper = new MyDataBaseHelper(context, "happy.db", null, 1);
         SQLiteDatabase db = myDataBaseHelper.getWritableDatabase();
         db.execSQL("INSERT INTO message " +
                 "(guest_name,guest_code,type,content,date)" +

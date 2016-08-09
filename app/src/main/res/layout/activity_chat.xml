@@ -29,6 +29,7 @@
             android:background="@null" />
 
         <ImageView
+            android:id="@+id/biaoqing"
             android:contentDescription="biaoqing"
             android:layout_width="30dp"
             android:layout_height="match_parent"

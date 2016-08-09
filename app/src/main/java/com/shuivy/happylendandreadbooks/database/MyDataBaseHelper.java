@@ -47,7 +47,7 @@ public class MyDataBaseHelper extends SQLiteOpenHelper {
         values.put("type", 1);
         values.put("guest_name", "zhoujc");
         values.put("guest_code", "1");
-        values.put("content", "求送本小黄书");
+        values.put("content", "求本武侠小说书");
         values.put("date", 1470645607);
         db.insert("message", null, values);
         values.clear();
@@ -55,23 +55,23 @@ public class MyDataBaseHelper extends SQLiteOpenHelper {
         values.put("type", 1);
         values.put("guest_name", "zhoujc");
         values.put("guest_code", "1");
-        values.put("content", "给你5元");
+        values.put("content", "给你10元");
         values.put("date", 1470645608);
-        db.insert("message", null, values);
-        values.clear();
-
-        values.put("type", 1);
-        values.put("guest_name", "zhoujc");
-        values.put("guest_code", "1");
-        values.put("content", "20元好不好");
-        values.put("date", 1470645609);
         db.insert("message", null, values);
         values.clear();
 
         values.put("type", 0);
         values.put("guest_name", "zhoujc");
         values.put("guest_code", "1");
-        values.put("content", "送你了");
+        values.put("content", "5元就行了");
+        values.put("date", 1470645609);
+        db.insert("message", null, values);
+        values.clear();
+
+        values.put("type", 1);
+        values.put("guest_name", "zhoujc");
+        values.put("guest_code", "1");
+        values.put("content", "多谢哈");
         values.put("date", 1470645610);
         db.insert("message", null, values);
         values.clear();
@@ -87,8 +87,32 @@ public class MyDataBaseHelper extends SQLiteOpenHelper {
         values.put("type", 1);
         values.put("guest_name", "我是小猫咪");
         values.put("guest_code", "3");
-        values.put("content", "呀。");
+        values.put("content", "OK。");
         values.put("date", 1470445607);
+        db.insert("message", null, values);
+        values.clear();
+
+        values.put("type", 1);
+        values.put("guest_name", "我是小书虫");
+        values.put("guest_code", "4");
+        values.put("content", "哈哈");
+        values.put("date", 1470445607);
+        db.insert("message", null, values);
+        values.clear();
+
+        values.put("type", 1);
+        values.put("guest_name", "我是丹丹");
+        values.put("guest_code", "5");
+        values.put("content", "你的书很不错呀");
+        values.put("date", 1470445607);
+        db.insert("message", null, values);
+        values.clear();
+
+        values.put("type", 1);
+        values.put("guest_name", "我是丹丹");
+        values.put("guest_code", "5");
+        values.put("content", "希望以后多多交流");
+        values.put("date", 1470445609);
         db.insert("message", null, values);
         values.clear();
 
@@ -97,63 +121,6 @@ public class MyDataBaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        db.execSQL("drop table if exists user");
-        db.execSQL("drop table if exists guest");
-        db.execSQL("drop table if exists message");
-        onCreate(db);
-
-        ContentValues values = new ContentValues();
-        values.put("name", "stk_night");
-        db.insert("user", null, values);
-        values.clear();
-
-        values.put("type", 1);
-        values.put("guest_name", "zhoujc");
-        values.put("guest_code", "1");
-        values.put("content", "求送本小黄书");
-        values.put("date", 1470645607);
-        db.insert("message", null, values);
-        values.clear();
-
-        values.put("type", 1);
-        values.put("guest_name", "zhoujc");
-        values.put("guest_code", "1");
-        values.put("content", "给你5元");
-        values.put("date", 1470645608);
-        db.insert("message", null, values);
-        values.clear();
-
-        values.put("type", 1);
-        values.put("guest_name", "zhoujc");
-        values.put("guest_code", "1");
-        values.put("content", "20元好不好");
-        values.put("date", 1470645609);
-        db.insert("message", null, values);
-        values.clear();
-
-        values.put("type", 0);
-        values.put("guest_name", "zhoujc");
-        values.put("guest_code", "1");
-        values.put("content", "送你了");
-        values.put("date", 1470645610);
-        db.insert("message", null, values);
-        values.clear();
-
-        values.put("type", 1);
-        values.put("guest_name", "小智");
-        values.put("guest_code", "2");
-        values.put("content", "这本书和你换吧");
-        values.put("date", 1470545607);
-        db.insert("message", null, values);
-        values.clear();
-
-        values.put("type", 1);
-        values.put("guest_name", "我是小猫咪");
-        values.put("guest_code", "3");
-        values.put("content", "呀。");
-        values.put("date", 1470445607);
-        db.insert("message", null, values);
-        values.clear();
 
     }
 }

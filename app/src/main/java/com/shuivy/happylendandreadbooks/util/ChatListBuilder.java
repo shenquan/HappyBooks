@@ -28,7 +28,7 @@ public class ChatListBuilder {
     }
 
     public List<MyMessage> getMessagesFromSQLite(String guestCode) {
-        MyDataBaseHelper dataBaseHelper = new MyDataBaseHelper(mContext, "happy.db", null, 6);
+        MyDataBaseHelper dataBaseHelper = new MyDataBaseHelper(mContext, "happy.db", null, 1);
         SQLiteDatabase db = dataBaseHelper.getReadableDatabase();
         Cursor cursor = db.rawQuery("SELECT * FROM message WHERE guest_code='" + guestCode + "'", null);
         if (cursor.moveToFirst()) {
