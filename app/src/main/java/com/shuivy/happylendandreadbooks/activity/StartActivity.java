@@ -30,7 +30,7 @@ public class StartActivity extends Activity {
                 startActivity(intent);
                 StartActivity.this.finish();
             }
-        }, 100);
+        }, 2000);
 
     }
 }

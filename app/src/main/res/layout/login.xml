@@ -127,7 +127,7 @@
                 android:gravity="center">
 
                 <Button
-                    android:id="@+id/login"
+                    android:id="@+id/publish"
                     android:layout_width="100dp"
                     android:layout_height="40dp"
                     android:background="#ff336699"

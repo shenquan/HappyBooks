@@ -15,6 +15,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.shuivy.happylendandreadbooks.R;
 import com.shuivy.happylendandreadbooks.adapter.MyViewPagerAdapter;
@@ -62,8 +63,12 @@ public class HomeFragment extends Fragment {
                 R.mipmap.book_viewpager2,
                 R.mipmap.book_viewpager3,
         };
-
         initIndex();
+
+//        ListView listView = (ListView) mRootView.findViewById(R.id.listview);
+//        DetailInfoAdapter detailInfoAdapter = new DetailInfoAdapter(mContext);
+//        listView.setAdapter(detailInfoAdapter);
+
     }
 
     private void initIndex() {
@@ -217,6 +222,7 @@ public class HomeFragment extends Fragment {
                 scaleAnimation.setDuration(duration);
                 scaleAnimation.setFillAfter(true);
                 view.startAnimation(scaleAnimation);
+                Toast.makeText(mContext, "后续添加功能", Toast.LENGTH_SHORT).show();
                 break;
             }
         }

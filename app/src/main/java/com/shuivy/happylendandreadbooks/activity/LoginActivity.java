@@ -32,7 +32,7 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-        findViewById(R.id.login).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.publish).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 EditText userNameET = (EditText) findViewById(R.id.user_name);

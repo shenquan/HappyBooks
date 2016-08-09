@@ -25,7 +25,7 @@ public class MessageAdapter extends BaseAdapter {
     private Context mContext;
     private List<MyMessage> messList = new ArrayList<>();
     private MessageListBuilder messageListBuilder;
-    public static final int COUNT = 10;
+    private static final int COUNT = 10;
 
     private int[] headImage = new int[]{
             R.mipmap.share_person_1,

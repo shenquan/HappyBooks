@@ -7,6 +7,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -66,6 +67,16 @@ public class PublishActivity extends Activity {
                 imageDeleteButton.setVisibility(View.GONE);
             }
         });
+        Button publish = (Button) findViewById(R.id.publish);
+        publish.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(PublishActivity.this, BookMainActivity.class);
+                startActivity(intent);
+                PublishActivity.this.finish();
+            }
+        });
+
     }
 
     private void initIndex() {

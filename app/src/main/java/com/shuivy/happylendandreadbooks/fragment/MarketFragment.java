@@ -6,9 +6,12 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.RelativeLayout;
 
 import com.shuivy.happylendandreadbooks.R;
+import com.shuivy.happylendandreadbooks.adapter.DetailInfoAdapter;
 
 /**
  * Created by stk on 2016/7/22 0022.
@@ -16,6 +19,8 @@ import com.shuivy.happylendandreadbooks.R;
 public class MarketFragment extends Fragment {
 
     private View mRootView;
+    private ListView listView1;
+    private LinearLayout info_need;
     private Activity mContext;
 
     @Override
@@ -41,12 +46,19 @@ public class MarketFragment extends Fragment {
         final View view_2 = mRootView.findViewById(R.id.view_2);
         view_1.setVisibility(View.VISIBLE);
         view_2.setVisibility(View.GONE);
-
+        listView1 = (ListView) mRootView.findViewById(R.id.listview_1);
+        listView1.setVisibility(View.VISIBLE);
+        info_need = (LinearLayout) mRootView.findViewById(R.id.info_need);
+        info_need.setVisibility(View.GONE);
+        DetailInfoAdapter detailInfoAdapter1 = new DetailInfoAdapter(mContext);
+        listView1.setAdapter(detailInfoAdapter1);
         r_1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 view_1.setVisibility(View.VISIBLE);
                 view_2.setVisibility(View.GONE);
+                listView1.setVisibility(View.VISIBLE);
+                info_need.setVisibility(View.GONE);
             }
         });
         r_2.setOnClickListener(new View.OnClickListener() {
@@ -54,7 +66,10 @@ public class MarketFragment extends Fragment {
             public void onClick(View view) {
                 view_1.setVisibility(View.GONE);
                 view_2.setVisibility(View.VISIBLE);
+                listView1.setVisibility(View.GONE);
+                info_need.setVisibility(View.VISIBLE);
             }
         });
+
     }
 }

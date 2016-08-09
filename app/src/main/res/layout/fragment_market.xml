@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="75dp"
+    android:background="#FFF"
     android:orientation="vertical">
 
     <LinearLayout
@@ -35,7 +37,7 @@
             <View
                 android:id="@+id/view_1"
                 android:layout_width="match_parent"
-                android:layout_height="2dp"
+                android:layout_height="3dp"
                 android:layout_alignParentBottom="true"
                 android:background="@color/colorPrimary"
                 android:visibility="gone" />
@@ -60,7 +62,7 @@
             <View
                 android:id="@+id/view_2"
                 android:layout_width="match_parent"
-                android:layout_height="2dp"
+                android:layout_height="3dp"
                 android:layout_alignParentBottom="true"
                 android:background="@color/colorPrimary"
                 android:visibility="gone" />
@@ -73,5 +75,54 @@
         android:layout_width="match_parent"
         android:layout_height="1px"
         android:background="@color/personInfoInterval" />
+
+    <ListView
+        android:id="@+id/listview_1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone" />
+
+    <LinearLayout
+        android:id="@+id/info_need"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/title_3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:paddingLeft="10dp"
+            android:text="求购一本《镜中蔷薇》一书"
+            android:textColor="#333"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/imageView_3"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:scaleType="fitXY"
+            android:src="@mipmap/book_detail_3" />
+
+        <TextView
+            android:id="@+id/description_3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:paddingLeft="10dp"
+            android:text="求购一本镜中蔷薇一书，新旧无所谓的哦" />
+
+        <TextView
+            android:id="@+id/address_3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:paddingLeft="10dp"
+            android:text="地址：上海大学宝山校区文学院" />
+
+    </LinearLayout>
 
 </LinearLayout>
