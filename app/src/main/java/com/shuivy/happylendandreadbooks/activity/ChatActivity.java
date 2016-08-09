@@ -34,6 +34,7 @@ public class ChatActivity extends AppCompatActivity{
     TextView titleTextView;
     ArrayList<MyMessage>  chatMessages = new ArrayList<>();
 
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -73,10 +74,13 @@ public class ChatActivity extends AppCompatActivity{
                     if(chatListAdapter!=null)
                         chatListAdapter.notifyDataSetChanged();
                     inputEditText.setText("");
+                    setResult(1);
                 }
 
             }
         });
+
+
 
 
     }

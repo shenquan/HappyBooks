@@ -98,6 +98,9 @@ public class MessageAdapter extends BaseAdapter {
 
         ViewHolder holder;
         MyMessage message = getItem(i);
+        Log.d("stkdebug_adapter",message.getGuestName());
+        Log.d("stkdebug_adapter",message.getContent());
+        Log.d("stkdebug_adapter",message.getDate()+"");
         if (convertView == null) {
             holder = new ViewHolder();
             convertView = LayoutInflater.from(mContext).inflate(R.layout.message_item, null);

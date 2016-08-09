@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,6 +30,7 @@ public class MessageFragment extends Fragment {
     private List<MyMessage> messList;
     MessageListBuilder messageListBuilder;
     ListView messageListView;
+    MessageAdapter messageAdapter;
 
 
 
@@ -49,12 +51,22 @@ public class MessageFragment extends Fragment {
         return mRootView;
     }
 
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(resultCode==1){
+            Log.d("stkdebug_result_code",requestCode+"");
+            messageAdapter=new MessageAdapter(mContext);
+            messageListView.setAdapter(messageAdapter);
+        }
+    }
+
     private void initView() {
         messageListBuilder=new MessageListBuilder(mContext);
         messList= messageListBuilder.getMessages();
         messageListView = (ListView) mRootView.findViewById(R.id.message_list);
 
-        final MessageAdapter messageAdapter = new MessageAdapter(mContext);
+        messageAdapter = new MessageAdapter(mContext);
         messageListView.setAdapter(messageAdapter);
         messageListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -62,10 +74,11 @@ public class MessageFragment extends Fragment {
                 Intent intent=new Intent(mContext,ChatActivity.class);
                 intent.putExtra("guestName",messList.get(position).getGuestName());
                 intent.putExtra("guestCode",messList.get(position).getGuestCode());
-                startActivity(intent);
-
+                startActivityForResult(intent,1);
             }
         });
+
+
     }
 
 
