@@ -72,6 +72,7 @@ public class MyMessage {
                 "VALUES(" +
                 "'"+this.getGuestName()+"','"+this.getGuestCode()+"','" +
                 this.getType()+"','"+this.getContent()+"','"+this.date+"')");
+        db.close();
         return true;
     }
 }
