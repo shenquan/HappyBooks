@@ -8,33 +8,36 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+
 import com.shuivy.happylendandreadbooks.R;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class BooktypeListActivity extends Activity {
     List<String> data;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setTitle("选择分类");
         setContentView(R.layout.activity_booktype_list);
-        ListView bookType = (ListView)findViewById(R.id.bookType);
-        bookType.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,getData()));
+        ListView bookType = (ListView) findViewById(R.id.bookType);
+        bookType.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, getData()));
         bookType.setCacheColorHint(Color.TRANSPARENT);
-        bookType.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+        bookType.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 String typeName = data.get(position);
-                Intent intent=new Intent();
-                intent.putExtra("typeName",typeName);
-                setResult(RESULT_OK,intent);
+                Intent intent = new Intent();
+                intent.putExtra("typeName", typeName);
+                setResult(RESULT_OK, intent);
                 finish();
             }
         });
     }
 
-    private List<String> getData(){
+    private List<String> getData() {
 
         data = new ArrayList<String>();
         data.add("文学");

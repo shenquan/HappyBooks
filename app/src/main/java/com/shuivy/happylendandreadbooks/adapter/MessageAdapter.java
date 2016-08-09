@@ -6,10 +6,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.TextView;
 
 import com.shuivy.happylendandreadbooks.R;
@@ -25,7 +23,7 @@ import java.util.List;
  */
 public class MessageAdapter extends BaseAdapter {
     private Context mContext;
-    private List<MyMessage> messList=new ArrayList<>();
+    private List<MyMessage> messList = new ArrayList<>();
     private MessageListBuilder messageListBuilder;
     public static final int COUNT = 10;
 
@@ -41,7 +39,7 @@ public class MessageAdapter extends BaseAdapter {
             R.mipmap.share_person_9,
             R.mipmap.share_person_10,
     };
-    private HashMap<String,Integer> guestProtraits=new HashMap<>();
+    private HashMap<String, Integer> guestProtraits = new HashMap<>();
 
     private String[] nickName = new String[]{
             "爱书宝贝",
@@ -70,10 +68,10 @@ public class MessageAdapter extends BaseAdapter {
 
     public MessageAdapter(Context mContext) {
         this.mContext = mContext;
-        guestProtraits.put("1",R.mipmap.share_person_1);
-        guestProtraits.put("2",R.mipmap.share_person_2);
-        guestProtraits.put("3",R.mipmap.share_person_3);
-        messageListBuilder= new MessageListBuilder(mContext);
+        guestProtraits.put("1", R.mipmap.share_person_1);
+        guestProtraits.put("2", R.mipmap.share_person_2);
+        guestProtraits.put("3", R.mipmap.share_person_3);
+        messageListBuilder = new MessageListBuilder(mContext);
         messList = messageListBuilder.getMessages();
     }
 
@@ -94,13 +92,13 @@ public class MessageAdapter extends BaseAdapter {
 
     @Override
     public View getView(int i, View convertView, ViewGroup viewGroup) {
-        Log.d("position",i+"");
+        Log.d("position", i + "");
 
         ViewHolder holder;
         MyMessage message = getItem(i);
-        Log.d("stkdebug_adapter",message.getGuestName());
-        Log.d("stkdebug_adapter",message.getContent());
-        Log.d("stkdebug_adapter",message.getDate()+"");
+        Log.d("stkdebug_adapter", message.getGuestName());
+        Log.d("stkdebug_adapter", message.getContent());
+        Log.d("stkdebug_adapter", message.getDate() + "");
         if (convertView == null) {
             holder = new ViewHolder();
             convertView = LayoutInflater.from(mContext).inflate(R.layout.message_item, null);

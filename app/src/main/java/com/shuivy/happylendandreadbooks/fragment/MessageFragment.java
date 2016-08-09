@@ -4,8 +4,6 @@ import android.app.Activity;
 import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -33,8 +31,6 @@ public class MessageFragment extends Fragment {
     MessageAdapter messageAdapter;
 
 
-
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         mContext = getActivity();
@@ -54,16 +50,16 @@ public class MessageFragment extends Fragment {
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if(resultCode==1){
-            Log.d("stkdebug_result_code",requestCode+"");
-            messageAdapter=new MessageAdapter(mContext);
+        if (resultCode == 1) {
+            Log.d("stkdebug_result_code", requestCode + "");
+            messageAdapter = new MessageAdapter(mContext);
             messageListView.setAdapter(messageAdapter);
         }
     }
 
     private void initView() {
-        messageListBuilder=new MessageListBuilder(mContext);
-        messList= messageListBuilder.getMessages();
+        messageListBuilder = new MessageListBuilder(mContext);
+        messList = messageListBuilder.getMessages();
         messageListView = (ListView) mRootView.findViewById(R.id.message_list);
 
         messageAdapter = new MessageAdapter(mContext);
@@ -71,16 +67,15 @@ public class MessageFragment extends Fragment {
         messageListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent=new Intent(mContext,ChatActivity.class);
-                intent.putExtra("guestName",messList.get(position).getGuestName());
-                intent.putExtra("guestCode",messList.get(position).getGuestCode());
-                startActivityForResult(intent,1);
+                Intent intent = new Intent(mContext, ChatActivity.class);
+                intent.putExtra("guestName", messList.get(position).getGuestName());
+                intent.putExtra("guestCode", messList.get(position).getGuestCode());
+                startActivityForResult(intent, 1);
             }
         });
 
 
     }
-
 
 
 }

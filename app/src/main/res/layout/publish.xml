@@ -93,40 +93,41 @@
             <!-- show images-->
             <RelativeLayout
                 android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                >
+                android:layout_height="wrap_content">
 
                 <ImageView
                     android:id="@+id/imageViewId"
                     android:layout_width="200dp"
                     android:layout_height="200dp"
+                    android:layout_marginLeft="10dp"
                     android:scaleType="fitXY"
-                    android:visibility="gone"
-                    android:layout_marginLeft="10dp"/>
+                    android:visibility="gone" />
 
                 <ImageButton
                     android:id="@+id/add_image"
                     android:layout_width="70dp"
                     android:layout_height="70dp"
-                    android:layout_marginRight="10dp"
-                    android:layout_toRightOf="@id/imageViewId"
                     android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
                     android:layout_marginTop="10dp"
-                    android:scaleType="fitXY"
-                    android:background="@drawable/add_image_btn_selector" />
+                    android:layout_toRightOf="@id/imageViewId"
+                    android:background="@drawable/add_image_btn_selector"
+                    android:scaleType="fitXY" />
+
                 <ImageButton
                     android:id="@+id/delete_image"
                     android:layout_width="70dp"
                     android:layout_height="70dp"
-                    android:layout_marginRight="10dp"
-                    android:layout_toRightOf="@id/imageViewId"
                     android:layout_below="@+id/add_image"
                     android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
                     android:layout_marginTop="20dp"
-                    android:scaleType="fitXY"
+                    android:layout_toRightOf="@id/imageViewId"
                     android:background="@drawable/delete_image"
-                    android:visibility="gone"/>
+                    android:scaleType="fitXY"
+                    android:visibility="gone" />
             </RelativeLayout>
+
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
@@ -176,23 +177,32 @@
                             android:checked="true"
                             android:gravity="center"
                             android:text="借出"
-                            android:textColor="@android:color/black">
-
-                        </RadioButton>
+                            android:textColor="@android:color/black" />
 
                         <RadioButton
                             android:id="@+id/radio_switch"
                             android:layout_width="80dp"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
-                            android:layout_marginLeft="40dp"
+                            android:layout_marginLeft="20dp"
                             android:background="@drawable/radio"
                             android:button="@null"
                             android:gravity="center"
                             android:text="交换"
-                            android:textColor="@android:color/black">
+                            android:textColor="@android:color/black" />
 
-                        </RadioButton>
+                        <RadioButton
+                            android:id="@+id/radio_need"
+                            android:layout_width="80dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="20dp"
+                            android:background="@drawable/radio"
+                            android:button="@null"
+                            android:gravity="center"
+                            android:text="求购"
+                            android:textColor="@android:color/black" />
+
 
                     </RadioGroup>
 
@@ -247,6 +257,7 @@
                         android:src="@drawable/right_arrow" />
 
                 </RelativeLayout>
+
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="2dp"
@@ -271,20 +282,19 @@
                         android:textSize="15sp" />
 
 
-                    <TextView
+                    <EditText
                         android:layout_width="match_parent"
-                        android:layout_height="25dp"
+                        android:layout_height="50dp"
                         android:layout_centerVertical="true"
                         android:layout_marginLeft="80dp"
                         android:layout_toLeftOf="@+id/header_right_btn"
                         android:layout_toRightOf="@+id/header_left_btn"
+                        android:hint="上海大学"
                         android:singleLine="true"
-                        android:text="上海大学"
                         android:textColor="@android:color/black"
-
                         android:textSize="15sp" />
 
-                    <ImageView
+                    <!--<ImageView
                         android:layout_width="25dp"
                         android:layout_height="25dp"
                         android:layout_alignParentRight="true"
@@ -292,10 +302,11 @@
                         android:layout_marginRight="10dp"
                         android:background="@android:color/transparent"
                         android:scaleType="fitXY"
-                        android:src="@drawable/right_arrow" />
+                        android:src="@drawable/right_arrow" />-->
 
 
                 </RelativeLayout>
+
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="2dp"

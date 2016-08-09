@@ -11,8 +11,7 @@
         android:layout_height="match_parent"
         android:id="@+id/bookType"
         android:textSize="14sp"
-        android:textColor="#000"
-        >
+        android:textColor="#000">
 
     </ListView>
 </RelativeLayout>
