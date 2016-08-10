@@ -209,9 +209,9 @@
                 android:layout_height="wrap_content"
                 android:gravity="center_vertical"
                 android:paddingLeft="10dp"
+                android:text="《拥抱》一书换《简爱》一书，期限15天"
                 android:textColor="#333"
-                android:textStyle="bold"
-                android:text="《拥抱》一书换《简爱》一书" />
+                android:textStyle="bold" />
 
             <ImageView
                 android:id="@+id/imageView_1"
@@ -257,9 +257,9 @@
                 android:layout_height="wrap_content"
                 android:gravity="center_vertical"
                 android:paddingLeft="10dp"
+                android:text="《流星之盼》换一本散文书，期限1个月"
                 android:textColor="#333"
-                android:textStyle="bold"
-                android:text="《流星之盼》换一本散文书" />
+                android:textStyle="bold" />
 
             <ImageView
                 android:id="@+id/imageView_2"
@@ -305,9 +305,9 @@
                 android:layout_height="wrap_content"
                 android:gravity="center_vertical"
                 android:paddingLeft="10dp"
+                android:text="求购一本《镜中蔷薇》一书"
                 android:textColor="#333"
-                android:textStyle="bold"
-                android:text="求购一本《镜中蔷薇》一书" />
+                android:textStyle="bold" />
 
             <ImageView
                 android:id="@+id/imageView_3"
@@ -334,9 +334,41 @@
 
         </LinearLayout>
 
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:layout_marginTop="10dp"
+            android:background="#DDD"
+            android:gravity="center_horizontal">
+
+            <View
+                android:id="@+id/line_view_1"
+                android:layout_width="80dp"
+                android:layout_height="1px"
+                android:layout_centerVertical="true"
+                android:background="#888" />
+
+            <TextView
+                android:id="@+id/lawo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@id/line_view_1"
+                android:text="别拉我了--我是有底线的~" />
+
+            <View
+                android:id="@+id/line_view_2"
+                android:layout_width="80dp"
+                android:layout_height="1px"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@id/lawo"
+                android:background="#888" />
+
+        </RelativeLayout>
+
         <View
             android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:background="#FFF" />
+            android:layout_height="60dp"
+            android:background="#DDD" />
     </LinearLayout>
 </ScrollView>
