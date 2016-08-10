@@ -39,7 +39,8 @@
     <com.shuivy.happylendandreadbooks.component.StkMenuLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        custom:Text="我的积分" />
+        custom:Text="我的积分"
+        android:id="@+id/jifen" />
 
     <View
         android:layout_width="match_parent"
@@ -49,7 +50,8 @@
     <com.shuivy.happylendandreadbooks.component.StkMenuLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        custom:Text="我发布的" />
+        custom:Text="我发布的"
+        android:id="@+id/fabu" />
 
     <View
         android:layout_width="match_parent"
@@ -59,7 +61,8 @@
     <com.shuivy.happylendandreadbooks.component.StkMenuLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        custom:Text="我借出的" />
+        custom:Text="我借出的"
+        android:id="@+id/jiechu" />
 
     <View
         android:layout_width="match_parent"
@@ -69,7 +72,8 @@
     <com.shuivy.happylendandreadbooks.component.StkMenuLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        custom:Text="我借到的" />
+        custom:Text="我借到的"
+        android:id="@+id/jiedao" />
 
     <View
         android:layout_width="match_parent"
@@ -79,7 +83,8 @@
     <com.shuivy.happylendandreadbooks.component.StkMenuLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        custom:Text="我赞过的" />
+        custom:Text="我收藏的"
+        android:id="@+id/zanguo" />
 
     <View
         android:layout_width="match_parent"
@@ -89,7 +94,8 @@
     <com.shuivy.happylendandreadbooks.component.StkMenuLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        custom:Text="设置" />
+        custom:Text="设置"
+        android:id="@+id/set" />
 
     <View
         android:layout_width="match_parent"
