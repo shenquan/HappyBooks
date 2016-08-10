@@ -16,7 +16,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="#FCC">
+            android:background="#6c6">
 
             <TextView
                 android:id="@+id/t_1"
@@ -26,7 +26,7 @@
                 android:ellipsize="end"
                 android:text="最新发布"
                 android:textColor="#444"
-                android:textSize="20sp" />
+                android:textSize="18sp" />
 
             <View
                 android:layout_width="1px"
@@ -37,7 +37,7 @@
             <View
                 android:id="@+id/view_1"
                 android:layout_width="match_parent"
-                android:layout_height="3dp"
+                android:layout_height="2dp"
                 android:layout_alignParentBottom="true"
                 android:background="@color/colorPrimary"
                 android:visibility="gone" />
@@ -57,12 +57,12 @@
                 android:layout_centerInParent="true"
                 android:text="求购信息"
                 android:textColor="#555"
-                android:textSize="20sp" />
+                android:textSize="18sp" />
 
             <View
                 android:id="@+id/view_2"
                 android:layout_width="match_parent"
-                android:layout_height="3dp"
+                android:layout_height="2dp"
                 android:layout_alignParentBottom="true"
                 android:background="@color/colorPrimary"
                 android:visibility="gone" />
@@ -86,6 +86,7 @@
         android:id="@+id/info_need"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:gravity="center"
         android:orientation="vertical"
         android:visibility="gone">
@@ -125,4 +126,9 @@
 
     </LinearLayout>
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_marginTop="5dp"
+        android:background="@color/personInfoInterval" />
 </LinearLayout>
