@@ -9,12 +9,12 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.shuivy.happylendandreadbooks.R;
 import com.shuivy.happylendandreadbooks.adapter.ChatListAdapter;
 import com.shuivy.happylendandreadbooks.models.MyMessage;
 import com.shuivy.happylendandreadbooks.util.ChatListBuilder;
+import com.shuivy.happylendandreadbooks.util.ToastUtil;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -61,7 +61,7 @@ public class ChatActivity extends AppCompatActivity {
         biaoqing.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(ChatActivity.this, "表情功能后续添加哦~", Toast.LENGTH_LONG).show();
+                ToastUtil.showToast(getApplicationContext(), "表情功能后续添加哦~");
             }
         });
 

@@ -116,7 +116,7 @@ public class MyDataBaseHelper extends SQLiteOpenHelper {
         db.insert("message", null, values);
         values.clear();
 
-//        Toast.makeText(mContext, "数据库创建成功!", Toast.LENGTH_SHORT).show();
+//        ToastUtil.showToast(mContext,"数据库创建成功!");
     }
 
     @Override

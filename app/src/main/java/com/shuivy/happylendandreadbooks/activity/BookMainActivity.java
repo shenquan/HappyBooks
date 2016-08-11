@@ -11,13 +11,13 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
-import android.widget.Toast;
 
 import com.shuivy.happylendandreadbooks.R;
 import com.shuivy.happylendandreadbooks.fragment.HomeFragment;
 import com.shuivy.happylendandreadbooks.fragment.MarketFragment;
 import com.shuivy.happylendandreadbooks.fragment.MessageFragment;
 import com.shuivy.happylendandreadbooks.fragment.UserFragment;
+import com.shuivy.happylendandreadbooks.util.ToastUtil;
 
 /**
  * Created by Hanshenquan on 2016/7/2.
@@ -158,7 +158,7 @@ public class BookMainActivity extends AppCompatActivity implements View.OnClickL
             //清除动画
             getWindow().getDecorView().clearAnimation();
             if ((System.currentTimeMillis() - EXIT_TIME) > 2000) {
-                Toast.makeText(getApplicationContext(), "再按一次退出程序~", Toast.LENGTH_SHORT).show();
+                ToastUtil.showToast(mContext, "再按一次退出程序~");
                 EXIT_TIME = System.currentTimeMillis();
             } else {
                 BookMainActivity.this.finish();

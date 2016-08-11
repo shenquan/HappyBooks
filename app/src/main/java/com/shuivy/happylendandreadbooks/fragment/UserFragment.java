@@ -8,11 +8,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.Toast;
 
 import com.shuivy.happylendandreadbooks.R;
 import com.shuivy.happylendandreadbooks.activity.LoginActivity;
 import com.shuivy.happylendandreadbooks.component.StkMenuLayout;
+import com.shuivy.happylendandreadbooks.util.ToastUtil;
 import com.shuivy.happylendandreadbooks.viewmodel.ListMenu;
 
 import java.util.ArrayList;
@@ -51,42 +51,42 @@ public class UserFragment extends Fragment implements View.OnClickListener {
         jifen.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(mContext, "“我的积分”功能待后续完善~", Toast.LENGTH_SHORT).show();
+                ToastUtil.showToast(mContext, "“我的积分”功能待后续完善~");
             }
         });
         StkMenuLayout fabu = (StkMenuLayout) mRootView.findViewById(R.id.fabu);
         fabu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(mContext, "“我发布的”功能待后续完善~", Toast.LENGTH_SHORT).show();
+                ToastUtil.showToast(mContext, "“我发布的”功能待后续完善~");
             }
         });
         StkMenuLayout jiechu = (StkMenuLayout) mRootView.findViewById(R.id.jiechu);
         jiechu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(mContext, "“我借出的”功能待后续完善~", Toast.LENGTH_SHORT).show();
+                ToastUtil.showToast(mContext, "“我借出的”功能待后续完善~");
             }
         });
         StkMenuLayout jiedao = (StkMenuLayout) mRootView.findViewById(R.id.jiedao);
         jiedao.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(mContext, "“我借到的”功能待后续完善~", Toast.LENGTH_SHORT).show();
+                ToastUtil.showToast(mContext, "“我借到的”功能待后续完善~");
             }
         });
         StkMenuLayout zanguo = (StkMenuLayout) mRootView.findViewById(R.id.zanguo);
         zanguo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(mContext, "“我收藏的”功能待后续完善~", Toast.LENGTH_SHORT).show();
+                ToastUtil.showToast(mContext, "“我收藏的”功能待后续完善~");
             }
         });
         StkMenuLayout set = (StkMenuLayout) mRootView.findViewById(R.id.set);
         set.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(mContext, "“设置”功能待后续完善~", Toast.LENGTH_SHORT).show();
+                ToastUtil.showToast(mContext, "“设置”功能待后续完善~");
             }
         });
 

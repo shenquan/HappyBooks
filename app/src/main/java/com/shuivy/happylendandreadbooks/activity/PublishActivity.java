@@ -14,6 +14,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.shuivy.happylendandreadbooks.R;
+import com.shuivy.happylendandreadbooks.util.ToastUtil;
 
 import java.io.ByteArrayOutputStream;
 
@@ -74,6 +75,7 @@ public class PublishActivity extends Activity {
                 Intent intent = new Intent(PublishActivity.this, BookMainActivity.class);
                 startActivity(intent);
                 PublishActivity.this.finish();
+                ToastUtil.showToast(getApplicationContext(), "发布成功~");
             }
         });
 

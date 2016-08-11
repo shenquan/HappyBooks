@@ -7,9 +7,9 @@ import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import com.shuivy.happylendandreadbooks.R;
+import com.shuivy.happylendandreadbooks.util.ToastUtil;
 
 /**
  * Created by stk on 2016/7/24 0024.
@@ -44,8 +44,7 @@ public class LoginActivity extends AppCompatActivity {
                     startActivity(intent);
                     LoginActivity.this.finish();
                 } else {
-                    Toast.makeText(LoginActivity.this, "账户名或密码错误", Toast.LENGTH_LONG).show();
-
+                    ToastUtil.showToast(getApplicationContext(), "账户名或密码错误");
                 }
             }
         });
