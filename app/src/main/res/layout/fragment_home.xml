@@ -345,10 +345,10 @@
 
             <View
                 android:id="@+id/line_view_1"
-                android:layout_width="80dp"
+                android:layout_width="70dp"
                 android:layout_height="1px"
                 android:layout_centerVertical="true"
-                android:background="#888" />
+                android:background="#aaa" />
 
             <TextView
                 android:id="@+id/lawo"
@@ -356,15 +356,16 @@
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_toRightOf="@id/line_view_1"
-                android:text="别拉我了--我是有底线的~" />
+                android:textColor="#888"
+                android:text="  别拉我了，我是有底线的~  " />
 
             <View
                 android:id="@+id/line_view_2"
-                android:layout_width="80dp"
+                android:layout_width="70dp"
                 android:layout_height="1px"
                 android:layout_centerVertical="true"
                 android:layout_toRightOf="@id/lawo"
-                android:background="#888" />
+                android:background="#aaa" />
 
         </RelativeLayout>
 
