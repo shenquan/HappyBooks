@@ -88,5 +88,11 @@ public class ChatActivity extends AppCompatActivity {
             }
         });
 
+        findViewById(R.id.header_left_btn).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ChatActivity.this.finish();
+            }
+        });
     }
 }
