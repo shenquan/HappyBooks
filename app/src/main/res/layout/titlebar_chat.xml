@@ -2,7 +2,8 @@
     android:layout_width="fill_parent"
     android:layout_gravity="fill_horizontal"
     android:orientation="horizontal"
-    android:layout_height="35dp">
+    android:layout_height="35dp"
+    android:background="#FFF">
 
     <ImageButton
         android:id="@+id/header_left_btn"
@@ -20,7 +21,7 @@
         android:layout_height="35dp"
         android:layout_toRightOf="@+id/header_left_btn"
         android:layout_toLeftOf="@+id/header_right_btn"
-        android:text="STK"
+        android:text="聊天信息"
         android:fontFamily="微软雅黑"
         android:textSize="18sp"
         android:textColor="@color/colorTitleText"
