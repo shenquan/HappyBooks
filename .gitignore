@@ -36,3 +36,7 @@ out/
 *.log
 .vscode/
 local.properties
+
+freeline.py
+freeline/
+freeline_core/
