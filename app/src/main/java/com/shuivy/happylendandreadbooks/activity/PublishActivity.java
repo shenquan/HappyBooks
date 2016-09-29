@@ -3,17 +3,21 @@ package com.shuivy.happylendandreadbooks.activity;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.shuivy.happylendandreadbooks.R;
+import com.shuivy.happylendandreadbooks.database.MyDataBaseHelper;
+import com.shuivy.happylendandreadbooks.models.BookInfo;
 import com.shuivy.happylendandreadbooks.util.ToastUtil;
 
 import java.io.ByteArrayOutputStream;
@@ -30,6 +34,9 @@ public class PublishActivity extends Activity {
     public static final int BOOKTYPEREQUEST = 1;
     public static final int PHOTOZOOM = 2; // 图片缩放
     public static final int PHOTORESOULT = 3;// 传回的结果
+    private EditText title;
+    private EditText des;
+    private  EditText location;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +46,9 @@ public class PublishActivity extends Activity {
     }
 
     private void initView() {
+        title = (EditText) findViewById(R.id.et_title);
+        des = (EditText) findViewById(R.id.et_content_text);
+        location = (EditText) findViewById(R.id.publish_address);
         imageAddButton = (ImageButton) findViewById(R.id.add_image);
         imageDeleteButton = (ImageButton) findViewById(R.id.delete_image);
         imageView = (ImageView) findViewById(R.id.imageViewId);
@@ -76,9 +86,23 @@ public class PublishActivity extends Activity {
                 startActivity(intent);
                 PublishActivity.this.finish();
                 ToastUtil.showToast(getApplicationContext(), "发布成功~");
+                storeToDb();
             }
         });
 
+    }
+
+    private void storeToDb() {
+        BookInfo bookInfo = new BookInfo();
+        bookInfo.setTitle(title.getText().toString());
+        bookInfo.setDes(des.getText().toString());
+        imageView.setDrawingCacheEnabled(true);
+        if (imageView.getDrawable() != null) {
+            bookInfo.setImg(Bitmap.createBitmap(imageView.getDrawingCache()));
+        }
+        imageView.setDrawingCacheEnabled(false);
+        bookInfo.setLocation(location.getText().toString());
+        MyDataBaseHelper.getInstance(this).storeUrineTestData(bookInfo);
     }
 
     private void initIndex() {

@@ -282,6 +282,7 @@
 
 
                     <EditText
+                        android:id="@+id/publish_address"
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
                         android:layout_centerVertical="true"

@@ -13,10 +13,17 @@ import android.view.animation.Animation;
 import android.view.animation.ScaleAnimation;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.RelativeLayout;
+import android.widget.ScrollView;
 
 import com.shuivy.happylendandreadbooks.R;
+import com.shuivy.happylendandreadbooks.adapter.BookListAdapter;
+import com.shuivy.happylendandreadbooks.adapter.DetailInfoAdapter;
 import com.shuivy.happylendandreadbooks.adapter.MyViewPagerAdapter;
+import com.shuivy.happylendandreadbooks.database.MyDataBaseHelper;
+import com.shuivy.happylendandreadbooks.models.BookInfo;
+import com.shuivy.happylendandreadbooks.util.ListUtility;
 import com.shuivy.happylendandreadbooks.util.ToastUtil;
 
 import java.util.ArrayList;
@@ -38,6 +45,9 @@ public class HomeFragment extends Fragment {
     private int mCount = 3;
     private Handler mHandler = new Handler();
     private int itemPosition;
+    private ArrayList<BookInfo> allBooks;
+    private BookListAdapter bookListAdapter;
+    private ScrollView sv;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -56,6 +66,14 @@ public class HomeFragment extends Fragment {
         return mRootView;
     }
 
+    @Override
+    public void onStart() {
+        super.onStart();
+        allBooks = MyDataBaseHelper.getInstance(getActivity()).getAllBooks();
+        bookListAdapter.notifyDataSetChanged();
+//        sv.smoothScrollTo(0,0);
+    }
+
     private void initView() {
         mImageIdArray = new int[]{
                 R.mipmap.book_viewpager1,
@@ -64,10 +82,12 @@ public class HomeFragment extends Fragment {
         };
         initIndex();
 
-//        ListView listView = (ListView) mRootView.findViewById(R.id.listview);
-//        DetailInfoAdapter detailInfoAdapter = new DetailInfoAdapter(mContext);
-//        listView.setAdapter(detailInfoAdapter);
-
+        sv = (ScrollView) mRootView.findViewById(R.id.home_sv);
+        ListView listView = (ListView) mRootView.findViewById(R.id.list_publish_book);
+        allBooks = MyDataBaseHelper.getInstance(getActivity()).getAllBooks();
+        bookListAdapter = new BookListAdapter(getActivity(), allBooks);
+        listView.setAdapter(bookListAdapter);
+        ListUtility.setListViewHeightBasedOnChildren(listView);
     }
 
     private void initIndex() {
@@ -82,6 +102,9 @@ public class HomeFragment extends Fragment {
     private void viewPager() {
         ViewGroup viewGroup = (ViewGroup) mRootView.findViewById(R.id.viewGroup);
         mViewPager = (ViewPager) mRootView.findViewById(R.id.viewPager);
+        mViewPager.setFocusable(true);// sv和lv冲突2
+        mViewPager.setFocusableInTouchMode(true);
+        mViewPager.requestFocus();
         //mCount是订单数量，是从订单处得到的数据，我们默认设为3
 
         mLayouts = new ArrayList<>();

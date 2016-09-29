@@ -2,14 +2,28 @@ package com.shuivy.happylendandreadbooks.database;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.util.Log;
+
+import com.shuivy.happylendandreadbooks.models.BookInfo;
+
+import java.io.ByteArrayOutputStream;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by stk on 2016/8/6 0006.
  */
 public class MyDataBaseHelper extends SQLiteOpenHelper {
-    private Context mContext;
+    private static final String DATABASE_NAME = "happy.db";
+    private static final int DATABASE_VERSION = 2;
+    private static MyDataBaseHelper sInstance;
+    private SQLiteDatabase db;
+
     public static final String CREATE_GUEST = "CREATE TABLE user ("
             + "id integer primary key autoincrement, "
             + "name text)";
@@ -25,16 +39,28 @@ public class MyDataBaseHelper extends SQLiteOpenHelper {
             + "guest_name text,"
             + "date text,"
             + "content text)";
+    public static final String CREATE_BOOK = "CREATE TABLE book ("
+            + " _id INTEGER PRIMARY KEY AUTOINCREMENT,"
+            + " title text,"
+            + " img BLOB,"
+            + " des text,"
+            + " location text)";
 
-
-    public MyDataBaseHelper(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
-        super(context, name, factory, version);
-        mContext = context;
+    public static MyDataBaseHelper getInstance(Context context) {
+        if (sInstance == null) {
+            sInstance = new MyDataBaseHelper(context.getApplicationContext());
+        }
+        return sInstance;
     }
 
+    public MyDataBaseHelper(Context context) {
+        super(context, DATABASE_NAME, null, DATABASE_VERSION);
+        db = getWritableDatabase();
+    }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
+        Log.d("TAG", "onCreate: ..................................................................");
         db.execSQL(CREATE_USER);
         db.execSQL(CREATE_GUEST);
         db.execSQL(CREATE_MESSAGE);
@@ -117,10 +143,47 @@ public class MyDataBaseHelper extends SQLiteOpenHelper {
         values.clear();
 
 //        ToastUtil.showToast(mContext,"数据库创建成功!");
+
+        db.execSQL(CREATE_BOOK);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+        Log.d("TAG", "onUpgrade: .................................................................." + newVersion);
+    }
 
+    public ArrayList<BookInfo> getAllBooks() {
+        ArrayList<BookInfo> mlist = new ArrayList<BookInfo>();
+        BookInfo result = null;
+
+        Cursor c = db.query("book", new String[]{"_id", "title", "img", "des", "location"}, null, null, null, null, "_id desc");
+        while (c.moveToNext()) {
+            result = new BookInfo();
+            result.setTitle(c.getString(1));
+            byte[] blob = c.getBlob(2);
+            result.setImg(BitmapFactory.decodeByteArray(blob, 0, blob.length));
+            result.setDes(c.getString(3));
+            result.setLocation(c.getString(4));
+            mlist.add(result);
+        }
+        c.close();
+        Log.d("TAG", "mlist.size: .................................................................." + mlist.size());
+        return mlist;
+    }
+
+    public void storeUrineTestData(BookInfo data) {
+        ContentValues cv = new ContentValues();
+        cv.put("title", data.getTitle());
+        cv.put("img", Bitmap2Bytes(data.getImg()));
+        cv.put("des", data.getDes());
+        cv.put("location", data.getLocation());
+
+        db.insert("book", null, cv);
+    }
+
+    public byte[] Bitmap2Bytes(Bitmap bm) {
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        bm.compress(Bitmap.CompressFormat.PNG, 100, baos);
+        return baos.toByteArray();
     }
 }

@@ -66,7 +66,7 @@ public class MyMessage {
     }
 
     public Boolean save(Context context) {
-        MyDataBaseHelper myDataBaseHelper = new MyDataBaseHelper(context, "happy.db", null, 1);
+        MyDataBaseHelper myDataBaseHelper = new MyDataBaseHelper(context);
         SQLiteDatabase db = myDataBaseHelper.getWritableDatabase();
         db.execSQL("INSERT INTO message " +
                 "(guest_name,guest_code,type,content,date)" +
