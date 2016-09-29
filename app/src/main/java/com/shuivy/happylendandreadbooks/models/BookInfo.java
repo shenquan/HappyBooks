@@ -7,7 +7,7 @@ import java.io.Serializable;
 /**
  * Created by 江 on 2016/9/27.
  */
-public class BookInfo implements Serializable{
+public class BookInfo implements Serializable {
     private String title;
     private Bitmap img;
     private String des;

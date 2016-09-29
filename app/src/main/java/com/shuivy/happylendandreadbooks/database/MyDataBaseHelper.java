@@ -13,7 +13,6 @@ import com.shuivy.happylendandreadbooks.models.BookInfo;
 
 import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by stk on 2016/8/6 0006.

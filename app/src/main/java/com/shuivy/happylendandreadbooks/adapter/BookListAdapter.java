@@ -62,7 +62,8 @@ public class BookListAdapter extends BaseAdapter {
         ImageView img;
         TextView des;
         TextView location;
-        ViewHolder(View itemView){
+
+        ViewHolder(View itemView) {
             title = ((TextView) itemView.findViewById(R.id.title));
             img = ((ImageView) itemView.findViewById(R.id.imageView));
             des = ((TextView) itemView.findViewById(R.id.description));

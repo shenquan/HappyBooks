@@ -19,7 +19,6 @@ import android.widget.ScrollView;
 
 import com.shuivy.happylendandreadbooks.R;
 import com.shuivy.happylendandreadbooks.adapter.BookListAdapter;
-import com.shuivy.happylendandreadbooks.adapter.DetailInfoAdapter;
 import com.shuivy.happylendandreadbooks.adapter.MyViewPagerAdapter;
 import com.shuivy.happylendandreadbooks.database.MyDataBaseHelper;
 import com.shuivy.happylendandreadbooks.models.BookInfo;

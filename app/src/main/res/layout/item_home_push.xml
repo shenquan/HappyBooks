@@ -1,22 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
     <TextView
         android:id="@+id/title"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="center_vertical"
-        android:paddingLeft="10dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
         android:text="《流星之盼》换一本散文书，期限1个月"
         android:textColor="#333"
+        android:textSize="17sp"
         android:textStyle="bold" />
 
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="300dp"
         android:layout_height="300dp"
+        android:layout_gravity="center_horizontal"
         android:scaleType="fitXY"
         android:src="@mipmap/book_detail_2" />
 
@@ -24,16 +28,22 @@
         android:id="@+id/description"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="10dp"
         android:gravity="center_vertical"
-        android:paddingLeft="10dp"
-        android:text="日本当代长篇小说，东野圭吾情感悬疑大作，日本连续56天平均每15秒售出1本，破东野圭吾小说销售纪录，并获日本年度畅销小说首名、日本纪伊国屋书店首名以及第43届新风奖。”" />
+        android:text="日本当代长篇小说，东野圭吾情感悬疑大作，日本连续56天平均每15秒售出1本，破东野圭吾小说销售纪录，并获日本年度畅销小说首名、日本纪伊国屋书店首名以及第43届新风奖。”"
+        android:textSize="13sp" />
 
     <TextView
         android:id="@+id/address"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="7dp"
+        android:layout_marginLeft="30dp"
         android:gravity="center_vertical"
-        android:paddingLeft="10dp"
-        android:text="地址：上海大学宝山校区计算机大楼" />
+        android:text="地址：上海大学宝山校区计算机大楼"
+        android:textSize="15sp"
+        android:textStyle="bold" />
 
 </LinearLayout>

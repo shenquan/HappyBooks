@@ -3,7 +3,6 @@ package com.shuivy.happylendandreadbooks.activity;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -36,7 +35,7 @@ public class PublishActivity extends Activity {
     public static final int PHOTORESOULT = 3;// 传回的结果
     private EditText title;
     private EditText des;
-    private  EditText location;
+    private EditText location;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
