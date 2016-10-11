@@ -45,6 +45,8 @@ public class MyDataBaseHelper extends SQLiteOpenHelper {
             + " title text,"
             + " img BLOB,"
             + " des text,"
+            + " book_class text,"
+            + " publish_type text,"
             + " create_date integer ,"
             + " location text)";
 
@@ -158,7 +160,7 @@ public class MyDataBaseHelper extends SQLiteOpenHelper {
         ArrayList<BookInfo> mlist = new ArrayList<BookInfo>();
         BookInfo result = null;
 
-        Cursor c = db.query("book", new String[]{"_id", "title", "img", "des", "location","create_date"}, null, null, null, null, "_id desc");
+        Cursor c = db.query("book", new String[]{"_id", "title", "img", "des", "location","create_date","publish_type","book_class"}, null, null, null, null, "_id desc");
         while (c.moveToNext()) {
             result = new BookInfo();
             result.setTitle(c.getString(1));
@@ -167,6 +169,9 @@ public class MyDataBaseHelper extends SQLiteOpenHelper {
             result.setDes(c.getString(3));
             result.setLocation(c.getString(4));
             result.setCreateDate(c.getLong(5));
+            result.setPublishType(c.getString(6));
+            result.setBookClass(c.getString(7));
+
             mlist.add(result);
         }
         c.close();
@@ -181,7 +186,8 @@ public class MyDataBaseHelper extends SQLiteOpenHelper {
         cv.put("des", data.getDes());
         cv.put("location", data.getLocation());
         cv.put("create_date",data.getCreateDate());
-
+        cv.put("publish_type",data.getPublishType());
+        cv.put("book_class",data.getBookClass());
         db.insert("book", null, cv);
     }
 

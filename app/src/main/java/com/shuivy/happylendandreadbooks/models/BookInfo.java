@@ -7,13 +7,33 @@ import java.util.Date;
 
 /**
  * Created by 江 on 2016/9/27.
+ * modify by zhoujichao on 2016/10/11
  */
 public class BookInfo implements Serializable {
     private String title;
     private Bitmap img;
     private String des;
     private String location;
+    private String publishType;
+    private String bookClass;
     private long createDate;
+
+
+    public String getBookClass() {
+        return bookClass;
+    }
+
+    public void setBookClass(String bookClass) {
+        this.bookClass = bookClass;
+    }
+
+    public String getPublishType() {
+        return publishType;
+    }
+
+    public void setPublishType(String publishType) {
+        this.publishType = publishType;
+    }
 
     public long getCreateDate() {
         return createDate;

@@ -6,11 +6,14 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -37,6 +40,9 @@ public class PublishActivity extends Activity {
     private EditText title;
     private EditText des;
     private EditText location;
+    private RadioGroup publishType;
+    private RadioButton seletedType;
+    private TextView typeName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +58,8 @@ public class PublishActivity extends Activity {
         imageAddButton = (ImageButton) findViewById(R.id.add_image);
         imageDeleteButton = (ImageButton) findViewById(R.id.delete_image);
         imageView = (ImageView) findViewById(R.id.imageViewId);
+        publishType = (RadioGroup) findViewById(R.id.publish_type);
+        typeName = (TextView) findViewById(R.id.typeName);
         RelativeLayout typeSelector = (RelativeLayout) findViewById(R.id.typeSelector);
         typeSelector.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -93,10 +101,17 @@ public class PublishActivity extends Activity {
     }
 
     private void storeToDb() {
+        seletedType = (RadioButton)findViewById(publishType.getCheckedRadioButtonId());
         BookInfo bookInfo = new BookInfo();
         bookInfo.setTitle(title.getText().toString());
         bookInfo.setDes(des.getText().toString());
         bookInfo.setCreateDate(new Date().getTime());
+        bookInfo.setPublishType(seletedType.getText().toString());
+        String typeNameString = typeName.getText().toString();
+        if("请选择分类".equals(typeNameString)){
+            typeNameString = null;
+        }
+        bookInfo.setBookClass(typeNameString);
         imageView.setDrawingCacheEnabled(true);
         if (imageView.getDrawable() != null) {
             bookInfo.setImg(Bitmap.createBitmap(imageView.getDrawingCache()));

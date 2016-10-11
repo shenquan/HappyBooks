@@ -16,18 +16,35 @@
         android:scaleType="fitXY"
         android:layout_marginTop="3dp"
         android:src="@mipmap/book_detail_2" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
     <TextView
         android:id="@+id/title"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
+        android:layout_weight="1"
         android:layout_marginTop="10dp"
         android:layout_marginLeft="30dp"
-        android:text="《流星之盼》换一本散文书，期限1个月"
+        android:text="《流星之盼》换一本散文书"
         android:textColor="#333"
         android:textSize="17sp"
         android:textStyle="bold" />
 
+    <TextView
+        android:id="@+id/publish_type"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="20dp"
+        android:text="借出"
+        android:textColor="#EE3B3B"
+        android:textSize="22sp"
+        android:textStyle="bold" />
+    </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

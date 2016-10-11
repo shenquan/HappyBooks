@@ -7,9 +7,13 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.shuivy.happylendandreadbooks.R;
 import com.shuivy.happylendandreadbooks.models.BookInfo;
+import com.shuivy.happylendandreadbooks.util.ToastUtil;
+
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -71,6 +75,7 @@ public class BookListAdapter extends BaseAdapter {
         holder.img.setImageBitmap(mData.get(position).getImg());
         holder.time.setText(dateStr);
         holder.location.setText(mData.get(position).getLocation());
+        holder.publishType.setText(mData.get(position).getPublishType());
         return convertView;
     }
 
@@ -79,6 +84,7 @@ public class BookListAdapter extends BaseAdapter {
         ImageView img;
         TextView time;
         TextView location;
+        TextView publishType;
 
 
         ViewHolder(View itemView) {
@@ -86,6 +92,7 @@ public class BookListAdapter extends BaseAdapter {
             img = ((ImageView) itemView.findViewById(R.id.imageView));
             time = ((TextView) itemView.findViewById(R.id.publish_time));
             location = ((TextView) itemView.findViewById(R.id.address));
+            publishType = ((TextView) itemView.findViewById(R.id.publish_type));
         }
     }
 }

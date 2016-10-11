@@ -158,11 +158,11 @@
 
 
                     <RadioGroup
+                        android:id="@+id/publish_type"
                         android:layout_width="match_parent"
                         android:layout_height="40dp"
                         android:layout_marginLeft="80dp"
                         android:orientation="horizontal"
-                        android:singleLine="true"
                         android:textColor="@android:color/black"
 
                         android:textSize="15sp">
@@ -239,7 +239,6 @@
                         android:layout_marginLeft="80dp"
                         android:layout_toLeftOf="@+id/header_right_btn"
                         android:layout_toRightOf="@+id/header_left_btn"
-                        android:singleLine="true"
                         android:text="请选择分类"
                         android:textColor="@android:color/black"
 
