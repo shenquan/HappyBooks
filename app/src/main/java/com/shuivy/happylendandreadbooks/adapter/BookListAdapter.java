@@ -12,9 +12,11 @@ import com.shuivy.happylendandreadbooks.R;
 import com.shuivy.happylendandreadbooks.models.BookInfo;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 /**
  * Created by 江 on 2016/9/27.
+ * modify by zhoujichao 2016/10/11
  */
 public class BookListAdapter extends BaseAdapter {
     private final LayoutInflater inflater;
@@ -50,9 +52,24 @@ public class BookListAdapter extends BaseAdapter {
         } else {
             holder = (ViewHolder) convertView.getTag();
         }
+        //计算距离发布的时间
+        String dateStr = null;
+        long curDate = new Date().getTime();
+        long createDate = mData.get(position).getCreateDate();
+        int secs = (int)(curDate-createDate)/1000;
+        int mins = secs/60;
+        int hours = mins/60;
+        int days = hours/24;
+        if(days>=1){
+            dateStr = days + "天前发布";
+        }else if(hours>=1){
+            dateStr = hours + "小时前发布";
+        }else{
+            dateStr = mins + "分钟前发布";
+        }
         holder.title.setText(mData.get(position).getTitle());
         holder.img.setImageBitmap(mData.get(position).getImg());
-        holder.des.setText(mData.get(position).getDes());
+        holder.time.setText(dateStr);
         holder.location.setText(mData.get(position).getLocation());
         return convertView;
     }
@@ -60,13 +77,14 @@ public class BookListAdapter extends BaseAdapter {
     class ViewHolder {
         TextView title;
         ImageView img;
-        TextView des;
+        TextView time;
         TextView location;
+
 
         ViewHolder(View itemView) {
             title = ((TextView) itemView.findViewById(R.id.title));
             img = ((ImageView) itemView.findViewById(R.id.imageView));
-            des = ((TextView) itemView.findViewById(R.id.description));
+            time = ((TextView) itemView.findViewById(R.id.publish_time));
             location = ((TextView) itemView.findViewById(R.id.address));
         }
     }

@@ -129,7 +129,7 @@ public class BookMainActivity extends AppCompatActivity implements View.OnClickL
                 case 4:
                     Intent intent = new Intent(BookMainActivity.this, PublishActivity.class);
                     startActivity(intent);
-                    BookMainActivity.this.finish();
+                    //BookMainActivity.this.finish();
                     break;
             }
             transaction.commit();

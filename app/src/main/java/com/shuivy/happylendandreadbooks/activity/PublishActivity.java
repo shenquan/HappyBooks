@@ -20,6 +20,7 @@ import com.shuivy.happylendandreadbooks.models.BookInfo;
 import com.shuivy.happylendandreadbooks.util.ToastUtil;
 
 import java.io.ByteArrayOutputStream;
+import java.util.Date;
 
 /**
  * Created by sqhan on 2016/7/27.
@@ -47,7 +48,7 @@ public class PublishActivity extends Activity {
     private void initView() {
         title = (EditText) findViewById(R.id.et_title);
         des = (EditText) findViewById(R.id.et_content_text);
-        location = (EditText) findViewById(R.id.publish_address);
+        location = (EditText) findViewById(R.id.publish_location);
         imageAddButton = (ImageButton) findViewById(R.id.add_image);
         imageDeleteButton = (ImageButton) findViewById(R.id.delete_image);
         imageView = (ImageView) findViewById(R.id.imageViewId);
@@ -95,6 +96,7 @@ public class PublishActivity extends Activity {
         BookInfo bookInfo = new BookInfo();
         bookInfo.setTitle(title.getText().toString());
         bookInfo.setDes(des.getText().toString());
+        bookInfo.setCreateDate(new Date().getTime());
         imageView.setDrawingCacheEnabled(true);
         if (imageView.getDrawable() != null) {
             bookInfo.setImg(Bitmap.createBitmap(imageView.getDrawingCache()));

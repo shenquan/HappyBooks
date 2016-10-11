@@ -12,7 +12,9 @@ import android.util.Log;
 import com.shuivy.happylendandreadbooks.models.BookInfo;
 
 import java.io.ByteArrayOutputStream;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 /**
  * Created by stk on 2016/8/6 0006.
@@ -43,6 +45,7 @@ public class MyDataBaseHelper extends SQLiteOpenHelper {
             + " title text,"
             + " img BLOB,"
             + " des text,"
+            + " create_date integer ,"
             + " location text)";
 
     public static MyDataBaseHelper getInstance(Context context) {
@@ -155,7 +158,7 @@ public class MyDataBaseHelper extends SQLiteOpenHelper {
         ArrayList<BookInfo> mlist = new ArrayList<BookInfo>();
         BookInfo result = null;
 
-        Cursor c = db.query("book", new String[]{"_id", "title", "img", "des", "location"}, null, null, null, null, "_id desc");
+        Cursor c = db.query("book", new String[]{"_id", "title", "img", "des", "location","create_date"}, null, null, null, null, "_id desc");
         while (c.moveToNext()) {
             result = new BookInfo();
             result.setTitle(c.getString(1));
@@ -163,6 +166,7 @@ public class MyDataBaseHelper extends SQLiteOpenHelper {
             result.setImg(BitmapFactory.decodeByteArray(blob, 0, blob.length));
             result.setDes(c.getString(3));
             result.setLocation(c.getString(4));
+            result.setCreateDate(c.getLong(5));
             mlist.add(result);
         }
         c.close();
@@ -176,6 +180,7 @@ public class MyDataBaseHelper extends SQLiteOpenHelper {
         cv.put("img", Bitmap2Bytes(data.getImg()));
         cv.put("des", data.getDes());
         cv.put("location", data.getLocation());
+        cv.put("create_date",data.getCreateDate());
 
         db.insert("book", null, cv);
     }

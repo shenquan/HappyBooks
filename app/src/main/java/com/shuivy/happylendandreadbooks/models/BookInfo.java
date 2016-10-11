@@ -3,6 +3,7 @@ package com.shuivy.happylendandreadbooks.models;
 import android.graphics.Bitmap;
 
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  * Created by 江 on 2016/9/27.
@@ -12,6 +13,15 @@ public class BookInfo implements Serializable {
     private Bitmap img;
     private String des;
     private String location;
+    private long createDate;
+
+    public long getCreateDate() {
+        return createDate;
+    }
+
+    public void setCreateDate(long createDate) {
+        this.createDate = createDate;
+    }
 
     public String getTitle() {
         return title;
