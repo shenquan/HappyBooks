@@ -160,7 +160,7 @@ public class MarketFragment extends Fragment {
         for (BookInfo book:allBooks) {
 
             LatLng l = new LatLng(book.getLatitude(),book.getLongitude());
-            if(mBaiduMap.getMapStatusLimit().contains(l)) {
+            if(mBaiduMap.getMapStatus().bound.contains(l)) {
                 overlayOptions = new MarkerOptions().position(l).icon(mCurrentMarker);
                 mBaiduMap.addOverlay(overlayOptions);
             }

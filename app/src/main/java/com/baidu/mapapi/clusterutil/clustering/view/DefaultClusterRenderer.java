@@ -24,7 +24,7 @@ import android.os.MessageQueue;
 import android.util.SparseArray;
 import android.view.ViewGroup;
 import android.view.animation.DecelerateInterpolator;
-import baidumapsdk.demo.R;
+import com.shuivy.happylendandreadbooks.R;
 
 import com.baidu.mapapi.clusterutil.MarkerManager;
 import com.baidu.mapapi.clusterutil.clustering.Cluster;
