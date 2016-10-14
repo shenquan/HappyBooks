@@ -24,11 +24,17 @@ android {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile fileTree(include: ['*.jar'], dir: 'libs')
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:23.3.0'
-
     debugCompile 'com.antfortune.freeline:runtime:0.6.2'
     releaseCompile 'com.antfortune.freeline:runtime-no-op:0.6.2'
     testCompile 'com.antfortune.freeline:runtime-no-op:0.6.2'
+    compile files('D:/Android Projects/HappyBooks/libs/baidumapapi_base_v4_0_0.jar')
+    compile files('D:/Android Projects/HappyBooks/libs/baidumapapi_cloud_v4_0_0.jar')
+    compile files('D:/Android Projects/HappyBooks/libs/baidumapapi_map_v4_0_0.jar')
+    compile files('D:/Android Projects/HappyBooks/libs/baidumapapi_radar_v4_0_0.jar')
+    compile files('D:/Android Projects/HappyBooks/libs/baidumapapi_search_v4_0_0.jar')
+    compile files('D:/Android Projects/HappyBooks/libs/baidumapapi_util_v4_0_0.jar')
+    compile files('D:/Android Projects/HappyBooks/libs/locSDK_6.13.jar')
 }

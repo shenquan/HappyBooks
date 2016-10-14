@@ -44,6 +44,7 @@ public class BookMainActivity extends AppCompatActivity implements View.OnClickL
     private ImageView user_image;
     private ImageView publish_image;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -69,6 +70,9 @@ public class BookMainActivity extends AppCompatActivity implements View.OnClickL
         user_item = (RelativeLayout) findViewById(R.id.user_item);
         publish_image = (ImageView) findViewById(R.id.publish_image);
 
+
+
+
         home_item.setOnClickListener(this);
         find_item.setOnClickListener(this);
         message_item.setOnClickListener(this);
@@ -76,6 +80,7 @@ public class BookMainActivity extends AppCompatActivity implements View.OnClickL
         publish_image.setOnClickListener(this);
         //默认去进入时显示第一个页面
         selectItem(0);
+
 
 
     }
@@ -107,22 +112,22 @@ public class BookMainActivity extends AppCompatActivity implements View.OnClickL
             unselectOthers();
             switch (index) {
                 case 0:
-                    home_image.setImageResource(R.mipmap.comui_tab_home_selected);
+                    home_image.setImageResource(R.mipmap.comui_tab_home_selected2);
                     homeFragment = new HomeFragment();
                     transaction.replace(R.id.main_container, homeFragment);
                     break;
                 case 1:
-                    find_image.setImageResource(R.mipmap.comui_tab_find_selected);
+                    find_image.setImageResource(R.mipmap.comui_tab_find_selected2);
                     findFragment = new MarketFragment();
                     transaction.replace(R.id.main_container, findFragment);
                     break;
                 case 2:
-                    message_image.setImageResource(R.mipmap.comui_tab_message_selected);
+                    message_image.setImageResource(R.mipmap.comui_tab_message_selected2);
                     messageFragment = new MessageFragment();
                     transaction.replace(R.id.main_container, messageFragment);
                     break;
                 case 3:
-                    user_image.setImageResource(R.mipmap.comui_tab_person_selected);
+                    user_image.setImageResource(R.mipmap.comui_tab_person_selected2);
                     userFragment = new UserFragment();
                     transaction.replace(R.id.main_container, userFragment);
                     break;

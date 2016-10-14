@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:orientation="horizontal"
+    android:background="@color/colorPrimary"
+    >
+    <ImageView
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="10dp"
+        android:scaleType="fitXY"
+        android:src="@mipmap/title_earth"
+        />
+        <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/title_search_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            >
+            <ImageView
+                android:id="@+id/main_search_input"
+                android:layout_width="250dp"
+                android:layout_height="38dp"
+                android:layout_gravity="center_horizontal|center_vertical"
+                android:scaleType="fitXY"
+                android:src="@mipmap/title_search_blank" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="试试搜索书名吧~"
+                android:layout_gravity="center_vertical"
+                android:textColor="#E3E3E3"
+                android:textSize="16dip"
+                android:layout_marginLeft="65dp"
+                android:id="@+id/title_search_text" />
+    </FrameLayout>
+
+
+    <ImageView
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_gravity="center_vertical"
+        android:layout_marginRight="10dp"
+        android:scaleType="fitXY"
+        android:src="@mipmap/titile_bell" />
+</LinearLayout>

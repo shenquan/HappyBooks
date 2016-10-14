@@ -4,14 +4,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     >
-
-
+    <include layout="@layout/title_book_type"
+        android:id="@+id/title_book_type_include" />
     <ListView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/bookType"
         android:textSize="14sp"
-        android:textColor="#000">
+        android:textColor="#000"
+        android:layout_below="@+id/title_book_type_include">
 
     </ListView>
 </RelativeLayout>

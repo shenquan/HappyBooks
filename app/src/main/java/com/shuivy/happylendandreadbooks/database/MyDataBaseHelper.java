@@ -47,6 +47,8 @@ public class MyDataBaseHelper extends SQLiteOpenHelper {
             + " des text,"
             + " book_class text,"
             + " publish_type text,"
+            + " latitude text,"
+            + " longitude text,"
             + " create_date integer ,"
             + " location text)";
 
@@ -160,7 +162,7 @@ public class MyDataBaseHelper extends SQLiteOpenHelper {
         ArrayList<BookInfo> mlist = new ArrayList<BookInfo>();
         BookInfo result = null;
 
-        Cursor c = db.query("book", new String[]{"_id", "title", "img", "des", "location","create_date","publish_type","book_class"}, null, null, null, null, "_id desc");
+        Cursor c = db.query("book", new String[]{"_id", "title", "img", "des", "location","create_date","publish_type","book_class","latitude","longitude"}, null, null, null, null, "_id desc");
         while (c.moveToNext()) {
             result = new BookInfo();
             result.setTitle(c.getString(1));
@@ -171,13 +173,16 @@ public class MyDataBaseHelper extends SQLiteOpenHelper {
             result.setCreateDate(c.getLong(5));
             result.setPublishType(c.getString(6));
             result.setBookClass(c.getString(7));
-
+            result.setLatitude(Double.valueOf(c.getString(8)));
+            result.setLongitude(Double.valueOf(c.getString(9)));
             mlist.add(result);
         }
         c.close();
         Log.d("TAG", "mlist.size: .................................................................." + mlist.size());
         return mlist;
     }
+
+
 
     public void storeUrineTestData(BookInfo data) {
         ContentValues cv = new ContentValues();
@@ -188,6 +193,8 @@ public class MyDataBaseHelper extends SQLiteOpenHelper {
         cv.put("create_date",data.getCreateDate());
         cv.put("publish_type",data.getPublishType());
         cv.put("book_class",data.getBookClass());
+        cv.put("latitude",String.valueOf(data.getLatitude()));
+        cv.put("longitude",String.valueOf(data.getLongitude()));
         db.insert("book", null, cv);
     }
 
@@ -196,4 +203,6 @@ public class MyDataBaseHelper extends SQLiteOpenHelper {
         bm.compress(Bitmap.CompressFormat.PNG, 100, baos);
         return baos.toByteArray();
     }
+
+
 }

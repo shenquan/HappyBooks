@@ -2,6 +2,7 @@ package com.shuivy.happylendandreadbooks.fragment;
 
 import android.app.Activity;
 import android.app.Fragment;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.view.ViewPager;
@@ -18,6 +19,8 @@ import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 
 import com.shuivy.happylendandreadbooks.R;
+import com.shuivy.happylendandreadbooks.activity.BookMainActivity;
+import com.shuivy.happylendandreadbooks.activity.BookSearchActivity;
 import com.shuivy.happylendandreadbooks.adapter.BookListAdapter;
 import com.shuivy.happylendandreadbooks.adapter.MyViewPagerAdapter;
 import com.shuivy.happylendandreadbooks.database.MyDataBaseHelper;
@@ -47,6 +50,7 @@ public class HomeFragment extends Fragment {
     private ArrayList<BookInfo> allBooks;
     private BookListAdapter bookListAdapter;
     private ScrollView sv;
+    private ImageView search;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -80,13 +84,20 @@ public class HomeFragment extends Fragment {
                 R.mipmap.book_viewpager3,
         };
         initIndex();
-
+        search = (ImageView)mRootView.findViewById(R.id.main_search_input);
         sv = (ScrollView) mRootView.findViewById(R.id.home_sv);
         ListView listView = (ListView) mRootView.findViewById(R.id.list_publish_book);
         allBooks = MyDataBaseHelper.getInstance(getActivity()).getAllBooks();
         bookListAdapter = new BookListAdapter(getActivity(), allBooks);
         listView.setAdapter(bookListAdapter);
         ListUtility.setListViewHeightBasedOnChildren(listView);
+        search.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), BookSearchActivity.class);
+                getActivity().startActivity(intent);
+            }
+        });
     }
 
     private void initIndex() {
@@ -248,5 +259,12 @@ public class HomeFragment extends Fragment {
                 break;
             }
         }
+    }
+
+    /**
+     * 计算
+     */
+    private void threeBodyInit(){
+
     }
 }

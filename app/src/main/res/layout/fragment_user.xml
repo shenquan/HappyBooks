@@ -106,15 +106,16 @@
         android:id="@+id/to_login_button"
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:layout_gravity="center_horizontal"
+        android:layout_gravity="bottom"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="100dp"
         android:background="@drawable/log_out"
         android:fontFamily="微软雅黑"
         android:gravity="center"
         android:text="退出登录"
         android:textColor="#FFF"
-        android:textSize="18dp" />
+        android:textSize="18dp"
+        />
 
 </LinearLayout>

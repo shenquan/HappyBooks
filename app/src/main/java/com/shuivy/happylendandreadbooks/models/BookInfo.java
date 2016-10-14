@@ -17,7 +17,24 @@ public class BookInfo implements Serializable {
     private String publishType;
     private String bookClass;
     private long createDate;
+    private double latitude; //发布用户纬度
+    private double longitude;//发布用户经度
 
+    public double getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(double latitude) {
+        this.latitude = latitude;
+    }
+
+    public double getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(double longitude) {
+        this.longitude = longitude;
+    }
 
     public String getBookClass() {
         return bookClass;

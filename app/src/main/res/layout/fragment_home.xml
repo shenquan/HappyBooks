@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <include layout="@layout/title_main" />
+    <ScrollView
     android:id="@+id/home_sv"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -113,7 +119,7 @@
                     android:id="@+id/r_2"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_weight="5"
+                    android:layout_weight="1"
                     android:background="#FDFCF4">
 
                     <TextView
@@ -138,7 +144,7 @@
                     android:id="@+id/r_3"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_weight="3"
+                    android:layout_weight="1"
                     android:background="#FAF1F1">
 
                     <TextView
@@ -380,4 +386,5 @@
             android:layout_height="60dp"
             android:background="#DDD" />
     </LinearLayout>
-</ScrollView>
+    </ScrollView>
+</LinearLayout>

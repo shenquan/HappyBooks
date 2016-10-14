@@ -82,11 +82,12 @@
                         android:src="@drawable/locator1" />
 
                     <Button
-                        android:layout_width="70dp"
+                        android:id="@+id/text_map_location"
+                        android:layout_width="80dp"
                         android:layout_height="20dp"
-
+                        android:layout_gravity="left"
                         android:background="@android:color/transparent"
-                        android:text="上海 宝山区"
+                        android:text="定位中..."
                         android:textSize="12sp" />
                 </LinearLayout>
             </LinearLayout>
@@ -280,7 +281,7 @@
                         android:textSize="15sp" />
 
 
-                    <EditText
+                    <TextView
                         android:id="@+id/publish_location"
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
@@ -289,8 +290,10 @@
                         android:layout_toLeftOf="@+id/header_right_btn"
                         android:layout_toRightOf="@+id/header_left_btn"
                         android:background="@null"
-                        android:hint="请输入交易地址"
+                        android:gravity="center_vertical"
+                        android:hint="加载中..."
                         android:textColor="@android:color/black"
+                        android:clickable="true"
                         android:textSize="15sp" />
 
                     <!--<ImageView
@@ -327,7 +330,7 @@
                     android:id="@+id/publish"
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
-                    android:background="@drawable/publish_btn_selector"
+                    android:background="@drawable/publish_btn_selected"
                     android:text="@string/publish_name"
                     android:textColor="@android:color/white" />
             </LinearLayout>
