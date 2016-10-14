@@ -2,12 +2,16 @@ package com.shuivy.happylendandreadbooks.fragment;
 
 import android.app.Activity;
 import android.app.Fragment;
+import android.graphics.Color;
+import android.location.Location;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.baidu.location.BDLocation;
 import com.baidu.location.BDLocationListener;
@@ -17,6 +21,7 @@ import com.baidu.mapapi.SDKInitializer;
 import com.baidu.mapapi.map.BaiduMap;
 import com.baidu.mapapi.map.BitmapDescriptor;
 import com.baidu.mapapi.map.BitmapDescriptorFactory;
+import com.baidu.mapapi.map.InfoWindow;
 import com.baidu.mapapi.map.MapStatus;
 import com.baidu.mapapi.map.MapStatusUpdateFactory;
 import com.baidu.mapapi.map.MapView;
@@ -26,6 +31,7 @@ import com.baidu.mapapi.map.MyLocationConfiguration;
 import com.baidu.mapapi.map.MyLocationData;
 import com.baidu.mapapi.map.OverlayOptions;
 import com.baidu.mapapi.model.LatLng;
+import com.baidu.mapapi.model.inner.Point;
 import com.shuivy.happylendandreadbooks.R;
 import com.shuivy.happylendandreadbooks.database.MyDataBaseHelper;
 import com.shuivy.happylendandreadbooks.models.BookInfo;
@@ -60,6 +66,7 @@ public class MarketFragment extends Fragment {
     private BitmapDescriptor mCurrentMarker; //自定义覆盖物
     private Marker marker;
     private LatLng curPos;
+    private InfoWindow mInfoWindow;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         mContext = getActivity();
@@ -84,17 +91,17 @@ public class MarketFragment extends Fragment {
         mBaiduMap.setMyLocationEnabled(true);
 
         mCurrentMarker = BitmapDescriptorFactory
-                .fromResource(R.mipmap.smile);
+                .fromResource(R.mipmap.smile_2);
         mBaiduMap
                 .setMyLocationConfigeration(new MyLocationConfiguration(
-                        mCurrentMode, true, null));
+                        mCurrentMode, true, mCurrentMarker));
         // 定位初始化
         mLocClient = new LocationClient(mContext.getApplicationContext());
         mLocClient.registerLocationListener(myListener);
         LocationClientOption option = new LocationClientOption();
         option.setOpenGps(true); // 打开gps
         option.setCoorType("bd09ll"); // 设置坐标类型
-//        option.setScanSpan(1000);
+//      option.setScanSpan(1000);
         mLocClient.setLocOption(option);
         mLocClient.start();
 
@@ -126,10 +133,65 @@ public class MarketFragment extends Fragment {
 
         mBaiduMap.setOnMarkerClickListener(new BaiduMap.OnMarkerClickListener() {
             @Override
-            public boolean onMarkerClick(Marker marker) {
+            public boolean onMarkerClick(final Marker marker) {
                 BookInfo book = (BookInfo) marker.getExtraInfo().get("book");
 
-                return false;
+                View view = LayoutInflater.from(getActivity().getApplicationContext()).inflate(R.layout.book_info_window,null);
+
+                TextView bookName = (TextView) view.findViewById(R.id.window_book_name);
+                TextView bookDesc = (TextView) view.findViewById(R.id.window_book_desc);
+                TextView bookType = (TextView) view.findViewById(R.id.window_book_type);
+                String t=book.getTitle(),d=book.getDes();
+                if(t.length()>10){
+                    t = t.substring(0,10)+"...";
+                }
+                if(d.length()>30){
+                    d = d.substring(0,30)+"...";
+                }
+                bookName.setText(book.getTitle());
+                bookDesc.setText(book.getDes());
+                bookType.setText(book.getPublishType());
+
+
+                /*LinearLayout window = new LinearLayout(getActivity());
+
+                window.setBackgroundColor(getResources().getColor(R.color.colorWhite));
+                window.setOrientation(LinearLayout.VERTICAL);
+
+                LinearLayout.LayoutParams txtParams = new LinearLayout.LayoutParams(
+                        ViewGroup.LayoutParams.MATCH_PARENT,
+                        ViewGroup.LayoutParams.WRAP_CONTENT);
+                TextView bookTitle = new TextView(getActivity());
+                //bookTitle.setBackgroundResource(R.mipmap.title_search_blank);
+                bookTitle.setPadding(30, 20, 30, 50);
+                bookTitle.setText(book.getTitle());
+                bookTitle.setTextColor(Color.GRAY);
+                bookTitle.setBackgroundColor(Color.WHITE);
+                window.addView(bookTitle);
+
+                TextView bookDesc = new TextView(getActivity());
+                //bookTitle.setBackgroundResource(R.mipmap.title_search_blank);
+                bookDesc.setPadding(30, 20, 30, 50);
+                bookDesc.setText(book.getDes());
+                bookDesc.setTextColor(Color.GRAY);
+                bookDesc.setBackgroundColor(Color.WHITE);
+                window.addView(bookDesc);
+
+                Button button = new Button(getActivity());
+                button.setText("查看");
+                window.addView(button);*/
+
+                InfoWindow.OnInfoWindowClickListener listener = new InfoWindow.OnInfoWindowClickListener() {
+                    public void onInfoWindowClick() {
+                        ToastUtil.showToast(getActivity().getApplicationContext(),"in");
+                        mBaiduMap.hideInfoWindow();
+                    }
+                };
+                LatLng ll = marker.getPosition();
+
+                mInfoWindow = new InfoWindow(BitmapDescriptorFactory.fromView(view), ll, -47, listener);
+                mBaiduMap.showInfoWindow(mInfoWindow);
+                return true;
             }
         });
 
@@ -158,7 +220,7 @@ public class MarketFragment extends Fragment {
                         location.getLongitude());
                 curPos = ll;
                 MapStatus.Builder builder = new MapStatus.Builder();
-                builder.target(ll).zoom(16.0f);
+                builder.target(ll).zoom(17.0f);
                 mBaiduMap.animateMapStatus(MapStatusUpdateFactory.newMapStatus(builder.build()));
             }
         }
