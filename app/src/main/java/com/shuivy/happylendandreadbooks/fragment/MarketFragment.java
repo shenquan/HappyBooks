@@ -52,7 +52,6 @@ public class MarketFragment extends Fragment {
     private List<BookInfo> allBooks;
     private MapView mMapView;
     private BaiduMap mBaiduMap;
-
     private OverlayOptions overlayOptions;
 
 
@@ -77,19 +76,25 @@ public class MarketFragment extends Fragment {
         }
         allBooks = MyDataBaseHelper.getInstance(getActivity()).getAllBooks();
         mCurrentMode = MyLocationConfiguration.LocationMode.NORMAL;
+
         // 地图初始化
         mMapView = (MapView) mRootView.findViewById(R.id.bmapView);
         mBaiduMap = mMapView.getMap();
         // 开启定位图层
         mBaiduMap.setMyLocationEnabled(true);
 
+        mCurrentMarker = BitmapDescriptorFactory
+                .fromResource(R.mipmap.smile);
+        mBaiduMap
+                .setMyLocationConfigeration(new MyLocationConfiguration(
+                        mCurrentMode, true, null));
         // 定位初始化
         mLocClient = new LocationClient(mContext.getApplicationContext());
         mLocClient.registerLocationListener(myListener);
         LocationClientOption option = new LocationClientOption();
         option.setOpenGps(true); // 打开gps
         option.setCoorType("bd09ll"); // 设置坐标类型
-        option.setScanSpan(1000);
+//        option.setScanSpan(1000);
         mLocClient.setLocOption(option);
         mLocClient.start();
 
@@ -116,6 +121,15 @@ public class MarketFragment extends Fragment {
             public void onMapStatusChangeFinish(MapStatus mapStatus) {
                 mBaiduMap.clear();
                 getNearbyPublish();
+            }
+        });
+
+        mBaiduMap.setOnMarkerClickListener(new BaiduMap.OnMarkerClickListener() {
+            @Override
+            public boolean onMarkerClick(Marker marker) {
+                BookInfo book = (BookInfo) marker.getExtraInfo().get("book");
+
+                return false;
             }
         });
 
@@ -162,7 +176,10 @@ public class MarketFragment extends Fragment {
             LatLng l = new LatLng(book.getLatitude(),book.getLongitude());
             if(mBaiduMap.getMapStatus().bound.contains(l)) {
                 overlayOptions = new MarkerOptions().position(l).icon(mCurrentMarker);
-                mBaiduMap.addOverlay(overlayOptions);
+                marker=(Marker) (mBaiduMap.addOverlay(overlayOptions));
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("book",book);
+                marker.setExtraInfo(bundle);
             }
         }
 
