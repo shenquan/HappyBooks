@@ -24,6 +24,7 @@ public class MyDataBaseHelper extends SQLiteOpenHelper {
     private static final int DATABASE_VERSION = 2;
     private static MyDataBaseHelper sInstance;
     private SQLiteDatabase db;
+    public static String searchWord ="编程";
 
     public static final String CREATE_GUEST = "CREATE TABLE user ("
             + "id integer primary key autoincrement, "
@@ -181,8 +182,29 @@ public class MyDataBaseHelper extends SQLiteOpenHelper {
         Log.d("TAG", "mlist.size: .................................................................." + mlist.size());
         return mlist;
     }
+    public ArrayList<BookInfo> getSearchBooks() {
+        ArrayList<BookInfo> mlist = new ArrayList<BookInfo>();
+        BookInfo result = null;
 
-
+        Cursor c = db.query("book", new String[]{"_id", "title", "img", "des", "location","create_date","publish_type","book_class","latitude","longitude"}, "title like ?", new String[]{"%"+searchWord+"%"}, null, null, "_id desc");
+        while (c.moveToNext()) {
+            result = new BookInfo();
+            result.setTitle(c.getString(1));
+            byte[] blob = c.getBlob(2);
+            result.setImg(BitmapFactory.decodeByteArray(blob, 0, blob.length));
+            result.setDes(c.getString(3));
+            result.setLocation(c.getString(4));
+            result.setCreateDate(c.getLong(5));
+            result.setPublishType(c.getString(6));
+            result.setBookClass(c.getString(7));
+            result.setLatitude(Double.valueOf(c.getString(8)));
+            result.setLongitude(Double.valueOf(c.getString(9)));
+            mlist.add(result);
+        }
+        c.close();
+        Log.d("TAG", "mlist.size: .................................................................." + mlist.size());
+        return mlist;
+    }
 
     public void storeUrineTestData(BookInfo data) {
         ContentValues cv = new ContentValues();

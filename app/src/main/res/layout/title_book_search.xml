@@ -1,48 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="50dp"
-    android:orientation="horizontal"
-    android:background="@color/colorPrimary"
-    >
-    <TextView
-        android:id="@+id/book_search_cancel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical"
-        android:textSize="18dp"
-        android:fontFamily="微软雅黑"
-        android:layout_marginLeft="20dp"
-        android:textColor="#ffffff"
-        android:text="取消"
-        android:layout_marginRight="20dp"/>
+    android:layout_height="wrap_content"
+    android:background="#FFF"
+    android:orientation="vertical">
 
-    <EditText
-        android:id="@+id/title_book_search_key"
-        android:layout_width="250dp"
-        android:layout_height="40dp"
-        android:layout_gravity="center_vertical"
-        android:background="@mipmap/title_search_blank"
-        android:paddingLeft="40dp"
-        android:paddingRight="12dp"
-        android:hint="试试搜索书名吧~"
-        android:textColorHint="@color/colorHint"
-        android:textCursorDrawable="@drawable/color_cursor"
-        android:layout_weight="1"
-        android:textSize="16dp"
-        android:singleLine="true"
-        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/colorPrimary"
+        android:orientation="horizontal">
 
-    <TextView
-        android:id="@+id/book_search_ok"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical"
-        android:textSize="18dp"
-        android:fontFamily="微软雅黑"
-        android:layout_marginLeft="10dp"
-        android:textColor="#ffffff"
-        android:text="确定"
-        android:layout_marginRight="20dp"/>
+        <TextView
+            android:id="@+id/book_search_cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:fontFamily="微软雅黑"
+            android:text="取消"
+            android:textColor="#ffffff"
+            android:textSize="18dp" />
+
+        <EditText
+            android:id="@+id/title_book_search_key"
+            android:layout_width="250dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:background="@mipmap/title_search_blank"
+            android:hint="试试搜索书名吧~"
+            android:paddingLeft="40dp"
+            android:paddingRight="12dp"
+            android:singleLine="true"
+            android:textColorHint="@color/colorHint"
+            android:textCursorDrawable="@drawable/color_cursor"
+            android:textSize="16dp" />
+
+        <TextView
+            android:id="@+id/book_search_ok"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="20dp"
+            android:fontFamily="微软雅黑"
+            android:text="确定"
+            android:textColor="#ffffff"
+            android:textSize="18dp" />
+
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/list_search_book"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
 
 </LinearLayout>
