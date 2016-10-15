@@ -206,6 +206,24 @@ public class MyDataBaseHelper extends SQLiteOpenHelper {
         return mlist;
     }
 
+    public BookInfo getBook(String title){
+        BookInfo bookInfo = new BookInfo();
+        Cursor c = db.query("book", new String[]{"_id", "title", "img", "des", "location","create_date","publish_type","book_class","latitude","longitude"}, "title like ?", new String[]{title}, null, null, "_id desc");
+        if(c.moveToNext()){
+            bookInfo.setTitle(c.getString(1));
+            byte[] blob = c.getBlob(2);
+            bookInfo.setImg(BitmapFactory.decodeByteArray(blob, 0, blob.length));
+            bookInfo.setDes(c.getString(3));
+            bookInfo.setLocation(c.getString(4));
+            bookInfo.setCreateDate(c.getLong(5));
+            bookInfo.setPublishType(c.getString(6));
+            bookInfo.setBookClass(c.getString(7));
+            bookInfo.setLatitude(Double.valueOf(c.getString(8)));
+            bookInfo.setLongitude(Double.valueOf(c.getString(9)));
+        }
+        return bookInfo;
+    }
+
     public void storeUrineTestData(BookInfo data) {
         ContentValues cv = new ContentValues();
         cv.put("title", data.getTitle());

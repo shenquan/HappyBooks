@@ -1,19 +1,15 @@
 package com.shuivy.happylendandreadbooks.models;
 
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 
-import java.io.ByteArrayOutputStream;
 import java.io.Serializable;
-import java.util.Date;
 
 /**
  * Created by 江 on 2016/9/27.
  * modify by zhoujichao on 2016/10/11
  */
-public class BookInfo implements Serializable {
+public class BookInfoS implements Serializable {
     private String title;
-    private Bitmap img;
     private String des;
     private String location;
     private String publishType;
@@ -70,14 +66,6 @@ public class BookInfo implements Serializable {
         this.title = title;
     }
 
-    public Bitmap getImg() {
-        return img;
-    }
-
-    public void setImg(Bitmap img) {
-        this.img = img;
-    }
-
     public String getDes() {
         return des;
     }
@@ -94,5 +82,5 @@ public class BookInfo implements Serializable {
         this.location = location;
     }
 
-
+   
 }

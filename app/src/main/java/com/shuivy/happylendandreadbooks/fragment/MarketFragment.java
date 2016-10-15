@@ -2,6 +2,7 @@ package com.shuivy.happylendandreadbooks.fragment;
 
 import android.app.Activity;
 import android.app.Fragment;
+import android.content.Intent;
 import android.graphics.Color;
 import android.location.Location;
 import android.os.Bundle;
@@ -33,8 +34,10 @@ import com.baidu.mapapi.map.OverlayOptions;
 import com.baidu.mapapi.model.LatLng;
 import com.baidu.mapapi.model.inner.Point;
 import com.shuivy.happylendandreadbooks.R;
+import com.shuivy.happylendandreadbooks.activity.BookDetailActivity;
 import com.shuivy.happylendandreadbooks.database.MyDataBaseHelper;
 import com.shuivy.happylendandreadbooks.models.BookInfo;
+import com.shuivy.happylendandreadbooks.models.BookInfoS;
 import com.shuivy.happylendandreadbooks.util.ToastUtil;
 
 import java.util.ArrayList;
@@ -67,6 +70,9 @@ public class MarketFragment extends Fragment {
     private Marker marker;
     private LatLng curPos;
     private InfoWindow mInfoWindow;
+
+    private BookInfo seleted;
+    private static final int DETAILREQUEST = 1;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         mContext = getActivity();
@@ -151,6 +157,7 @@ public class MarketFragment extends Fragment {
                 bookName.setText(book.getTitle());
                 bookDesc.setText(book.getDes());
                 bookType.setText(book.getPublishType());
+                seleted = book;
 
 
                 /*LinearLayout window = new LinearLayout(getActivity());
@@ -183,8 +190,11 @@ public class MarketFragment extends Fragment {
 
                 InfoWindow.OnInfoWindowClickListener listener = new InfoWindow.OnInfoWindowClickListener() {
                     public void onInfoWindowClick() {
-                        ToastUtil.showToast(getActivity().getApplicationContext(),"in");
-                        mBaiduMap.hideInfoWindow();
+                    Intent intent = new Intent();
+                    intent.setClass(getActivity(),BookDetailActivity.class);
+                    intent.putExtra("title",seleted.getTitle());
+                    startActivityForResult(intent,DETAILREQUEST);
+                    mBaiduMap.hideInfoWindow();
                     }
                 };
                 LatLng ll = marker.getPosition();

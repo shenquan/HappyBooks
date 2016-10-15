@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.ScaleAnimation;
+import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -19,15 +20,18 @@ import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 
 import com.shuivy.happylendandreadbooks.R;
+import com.shuivy.happylendandreadbooks.activity.BookDetailActivity;
 import com.shuivy.happylendandreadbooks.activity.BookMainActivity;
 import com.shuivy.happylendandreadbooks.activity.BookSearchActivity;
 import com.shuivy.happylendandreadbooks.adapter.BookListAdapter;
 import com.shuivy.happylendandreadbooks.adapter.MyViewPagerAdapter;
 import com.shuivy.happylendandreadbooks.database.MyDataBaseHelper;
 import com.shuivy.happylendandreadbooks.models.BookInfo;
+import com.shuivy.happylendandreadbooks.models.BookInfoS;
 import com.shuivy.happylendandreadbooks.util.ListUtility;
 import com.shuivy.happylendandreadbooks.util.ToastUtil;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -51,6 +55,7 @@ public class HomeFragment extends Fragment {
     private BookListAdapter bookListAdapter;
     private ScrollView sv;
     private ImageView search;
+    private static final int DETAILREQUEST = 1;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -96,6 +101,28 @@ public class HomeFragment extends Fragment {
             public void onClick(View view) {
                 Intent intent = new Intent(getActivity(), BookSearchActivity.class);
                 getActivity().startActivity(intent);
+            }
+        });
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                BookInfo book = allBooks.get(i);
+                Intent intent = new Intent();
+              /*  BookInfoS book = new BookInfoS();
+                book.setTitle(temp.getTitle());
+                book.setDes(temp.getDes());
+                book.setCreateDate(temp.getCreateDate());
+                book.setPublishType(temp.getPublishType());
+//                ToastUtil.showToast(getActivity().getApplicationContext(),book.getTitle());
+                Intent intent = new Intent();
+                intent.setClass(getActivity(),BookDetailActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("book",book);*/
+                intent.setClass(getActivity(),BookDetailActivity.class);
+                intent.putExtra("title",book.getTitle());
+                startActivityForResult(intent,DETAILREQUEST);
+
             }
         });
     }
